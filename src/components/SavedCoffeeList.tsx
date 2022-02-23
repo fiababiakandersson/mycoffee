@@ -2,4 +2,4 @@ function SavedCoffeeList() {
     return 
 }
 
-export default SavedCoffeeList();
+export default SavedCoffeeList;

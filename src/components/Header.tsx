@@ -1,5 +1,11 @@
+import Logo from '../assets/Logo.svg';
+
 function Header() {
-    return 
+    return (
+        <div>
+            <img src={Logo}/>
+        </div>
+    )
 }
 
-export default Header();
+export default Header;
