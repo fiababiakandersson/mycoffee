@@ -1,5 +1,7 @@
 function SavedCoffee() {
     return 
+    <div>
+    </div>
 }
 
-export default SavedCoffee();
+export default SavedCoffee;

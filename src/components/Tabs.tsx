@@ -2,4 +2,4 @@ function Tabs() {
   return;
 }
 
-export default Tabs();
+export default Tabs;
