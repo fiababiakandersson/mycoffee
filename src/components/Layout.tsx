@@ -1,13 +1,13 @@
 import { CSSProperties } from "react";
 import { Outlet } from "react-router-dom";
 import Header from "./Header";
-import Main from "./Main";
+import Navbar from "./Navbar";
 
 function Layout() {
     return (
         <div style={rootStyle}>
             <Header />
-            <Main />
+            <Navbar />
             <Outlet />
         </div>
     )

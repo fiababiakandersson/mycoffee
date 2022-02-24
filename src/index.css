@@ -1,13 +1,16 @@
 body {
   margin: 0;
-  font-family: 'Montserrat', sans-serif;
+  font-family: arial;
+  letter-spacing: .5px;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: #F4F3F2;
-  color: #603814;
+  color: #261103;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+
