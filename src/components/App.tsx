@@ -1,8 +1,9 @@
-import React from 'react';
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import './App.css';
-import CoffeeList from './CoffeeList';
-import Layout from './Layout';
+import React from "react";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import "./App.css";
+import CoffeeList from "./CoffeeList";
+import Contact from "./Contact";
+import Layout from "./Layout";
 
 function App() {
   return (
@@ -12,7 +13,8 @@ function App() {
           <Route index element={<CoffeeList />} />
           <Route path="saved" element={<div>Saved</div>} />
           <Route path="about" element={<div>About</div>} />
-          <Route path="*" element={<div>ERROR</div>} />
+          <Route path="contact" element={<Contact />} />
+          <Route path="*" element={<div>404 PAGE NOT FOUND</div>} />
         </Route>
       </Routes>
     </BrowserRouter>
