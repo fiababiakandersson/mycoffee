@@ -1,13 +1,59 @@
 body {
   margin: 0;
-  font-family: 'Montserrat', sans-serif;
+  font-family: arial;
+  letter-spacing: .5px;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: #F4F3F2;
-  color: #603814;
+  color: #261103;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+/* HEADER STYLING */
+
+.header {
+  background: var(--mainWhite);
+  height: 5rem;
+  display: flex;
+  justify-content: space-between;
+}
+
+.logo-div {
+  display: flex;
+  margin-left: 1.5rem;
+  margin-top: .5rem;
+
+}
+.nav-links {
+  display: flex;
+  
+}
+.nav-links a {
+  text-transform: capitalize;
+  display: inline-block;
+  font-weight: bold;
+  margin-right: 0.5rem;
+  font-weight: 400;
+  letter-spacing: 2px;
+  font-size: 1.2rem;
+  padding: 0.25rem 0.5rem;
+  transition: var(--mainTransition);
+}
+.nav-links a:hover {
+  color: var(--primaryColor);
+}
+
+  ul {
+    list-style-type: none;
+  }
+  a {
+    text-decoration: none;
+    color: var(--mainBlack);
+  }
+  .logo {
+    width: 8rem;
+  }
