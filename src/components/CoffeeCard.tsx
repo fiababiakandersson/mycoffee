@@ -6,15 +6,16 @@ interface Props {
   data: Data;
 }
 
-function CoffeeCard() {
+function CoffeeCard(props:Props) {
   const [images] = useState(coffeeData);
   // throw Error("oops222");
   return (
     <div style={rootStyle}>
-      <img style={imgStyle} src={imageImport} alt="coffepicture" />
-      {/* {images.map((image) => (
-        <img src={image.image} alt={image.name}/>
-      ))} */}
+    <h1>{props.data.name}</h1>
+    <p>{props.data.description}</p>
+    <p>{props.data.ingredients}</p>
+    <p>{props.data.id}</p>
+    <img src={props.data.image} alt={props.data.name} />
     </div>
   );
 }

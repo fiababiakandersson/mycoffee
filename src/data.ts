@@ -1,3 +1,5 @@
+import Breve from "./assets/breve.webp"
+
 export interface Data {
   name: string; 
   description: string; 
@@ -12,8 +14,7 @@ export const coffeeData: Data[] = [
     description: "Description",
     ingredients: "this and that and this and that",
     id: "1",
-    image: "https://avatars.githubusercontent.com/u/57703438?v=4"
-    // image: "../assets/breve.webpbreve.webp"
+    image: Breve,
   },
   {
     name: "Caffe Latte",

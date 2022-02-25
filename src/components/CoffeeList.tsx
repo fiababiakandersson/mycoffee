@@ -11,8 +11,7 @@ function CoffeeList() {
     <ErrorBoundary>
       <div style={rootStyle}>
         {coffees.map((coffee) => (
-          <CoffeeCard key={coffee.id} />
-          // <CoffeeCard key={coffee.id} data={coffee} />
+       <CoffeeCard key={coffee.id} data={coffee} />
         ))}
       </div>
     </ErrorBoundary>
