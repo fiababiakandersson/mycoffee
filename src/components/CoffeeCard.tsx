@@ -1,6 +1,7 @@
 import { CSSProperties, useState } from "react";
 import { coffeeData, Data } from "../data";
 import imageImport from "../assets/breve.webp"
+import HeartIcon from "./HeartIcon";
 
 interface Props {
   data: Data;
@@ -11,11 +12,12 @@ function CoffeeCard(props:Props) {
   // throw Error("oops222");
   return (
     <div style={rootStyle}>
-    <h1>{props.data.name}</h1>
-    <p>{props.data.description}</p>
-    <p>{props.data.ingredients}</p>
-    <p>{props.data.id}</p>
-    <img src={props.data.image} alt={props.data.name} />
+      <h1>{props.data.name}</h1>
+      <p>{props.data.description}</p>
+      <p>{props.data.ingredients}</p>
+      <p>{props.data.id}</p>
+      <img src={props.data.image} alt={props.data.name} />
+      <HeartIcon isLiked={true} />
     </div>
   );
 }
