@@ -1,59 +1,71 @@
+import Breve from "./assets/breve.webp"
+
 export interface Data {
   name: string; 
   description: string; 
   ingredients: string;
   id: string;
+  image: string;
 }
 
 export const coffeeData: Data[] = [
   {
-    name: "Katte Latte",
-    description: "weoqwiorqwiroqieoqwieoqiwoeiqwoeioqweioqioeqwo",
+    name: "Breve",
+    description: "Description",
     ingredients: "this and that and this and that",
     id: "1",
+    image: Breve,
   },
   {
-    name: "Cappuccino",
+    name: "Caffe Latte",
     description: "Espresso with milkfoam",
     ingredients: "Espresso, milk",
     id: "2",
+    image: "../assets/caffe-latte.webp"
   },
   {
-    name: "Americano",
+    name: "Cappuccino",
     description:
       "Blablabla and blablabla and blablabla and blablabla and blablabla and blablabla ",
     ingredients: "lots of coffee!!",
     id: "3",
+    image: "../assets/cappuccino.webp"
   },
   {
-    name: "Flat White",
+    name: "Americano",
     description: "asdjaslfjaslfjaslkjfsjflkjaslfjlasj",
     ingredients: "kjwklwjqfljlwqjlfjwqfkljlq",
     id: "4",
+    image: "../assets/americano.webp"
   },
   {
-    name: "Flat owqjeowqjeio",
+    name: "Espresso",
     description: "asdjaslfjaslfjaslkjfsjflkjaslfjlasj",
     ingredients: "kjwklwjqfljlwqjlfjwqfkljlq",
     id: "5",
+    image: "../assets/espresso.webp"
   },
   {
-    name: "wqenqwkenqwkne",
+    name: "Cortado",
     description: "asdjaslfjaslfjaslkjfsjflkjaslfjlasj",
     ingredients: "kjwklwjqfljlwqjlfjwqfkljlq",
     id: "6",
+    image: "../assets/cortado.webp"
   },
   {
-    name: "wqenqwkenqwkne",
+    name: "Red eye",
     description: "asdjaslfjaslfjaslkjfsjflkjaslfjlasj",
     ingredients: "kjwklwjqfljlwqjlfjwqfkljlq",
     id: "7",
+    image: "../assets/red-eye.webp"
   },
   {
     name: "wqenqwkenqwkne",
     description: "asdjaslfjaslfjaslkjfsjflkjaslfjlasj",
     ingredients: "kjwklwjqfljlwqjlfjwqfkljlq",
     id: "8",
+    image: "../assets/.png"
   },
+  
 ];
 
