@@ -14,7 +14,7 @@ function CoffeeCard(props: Props) {
       <p>{props.data.description}</p>
       <p>{props.data.ingredients}</p>
       <p>{props.data.id}</p>
-      <HeartIcon isLiked={false} />
+      <HeartIcon isLiked={true} />
     </div>
   );
 }

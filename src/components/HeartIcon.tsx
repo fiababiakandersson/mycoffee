@@ -1,27 +1,36 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHeart as faHeartSolid } from "@fortawesome/free-solid-svg-icons";
 import { faHeart as faHeartRegular } from "@fortawesome/free-regular-svg-icons";
-import { CSSProperties } from "react";
+import { Component, CSSProperties } from "react";
 
 interface Props {
   isLiked: boolean;
 }
-
-function HeartIcon(props: Props) {
-  // throw Error("oops222");
-  return (
-    <FontAwesomeIcon
-      onClick={handleLike}
-      //onClick={props.isLiked ? true : false}
-      icon={props.isLiked ? faHeartRegular : faHeartSolid}
-      style={heartStyle}
-    />
-  );
+interface State {
+  liked: boolean;
 }
+class HeartIcon extends Component<Props, State> {
+  constructor(props: Props) {
+    super(props);
+    this.state = { liked: false };
+  }
 
-const handleLike = () => {
-  console.log("hello");
-};
+  toggleLike = () => {
+    let localLike = this.state.liked;
+    localLike = !localLike;
+    this.setState({ liked: localLike });
+  };
+
+  render() {
+    return (
+      <FontAwesomeIcon
+        onClick={this.toggleLike}
+        icon={this.state.liked ? faHeartSolid : faHeartRegular}
+        style={heartStyle}
+      />
+    );
+  }
+}
 
 const heartStyle: CSSProperties = {
   fontSize: "2rem",
