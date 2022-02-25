@@ -18,10 +18,15 @@ function Header() {
                 <li>
                     <Link to='/saved'>My coffeelist</Link>
                 </li>
+                <li>
+                    <Link to="/about">About</Link>
+                </li>
+                <li>
+                  <Link to="/contact">Contact</Link>
+                </li>
             </ul>
-        
     </nav>
-    )
+  );
 }
 
 export default Header;
