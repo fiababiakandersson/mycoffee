@@ -1,5 +1,6 @@
 import { CSSProperties } from "react";
 import { Data } from "../data";
+import HeartIcon from "./HeartIcon";
 
 interface Props {
   data: Data;
@@ -13,6 +14,7 @@ function CoffeeCard(props: Props) {
       <p>{props.data.description}</p>
       <p>{props.data.ingredients}</p>
       <p>{props.data.id}</p>
+      <HeartIcon isLiked={false} />
     </div>
   );
 }
