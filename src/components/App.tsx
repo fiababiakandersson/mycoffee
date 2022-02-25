@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import "./App.css";
 import CoffeeList from "./CoffeeList";
@@ -6,6 +6,17 @@ import Contact from "./Contact";
 import Layout from "./Layout";
 
 function App() {
+
+   const [coffeeData, setCoffeeData] = useState([]);
+   useEffect(() => {
+     const getData = async () => {
+       const response = await fetch("https://api.sampleapis.com/coffee/hot");
+       const jsonData = await response.json();
+       console.log(jsonData);
+     };
+     getData();
+   }, []);
+
   return (
     <BrowserRouter>
       <Routes>
