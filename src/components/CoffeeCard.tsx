@@ -1,18 +1,20 @@
-import { CSSProperties } from "react";
-import { Data } from "../data";
+import { CSSProperties, useState } from "react";
+import { coffeeData, Data } from "../data";
+import imageImport from "../assets/breve.webp"
 
 interface Props {
   data: Data;
 }
 
-function CoffeeCard(props: Props) {
+function CoffeeCard() {
+  const [images] = useState(coffeeData);
   // throw Error("oops222");
   return (
     <div style={rootStyle}>
-      <h1>{props.data.name}</h1>
-      <p>{props.data.description}</p>
-      <p>{props.data.ingredients}</p>
-      <p>{props.data.id}</p>
+      <img style={imgStyle} src={imageImport} alt="coffepicture" />
+      {/* {images.map((image) => (
+        <img src={image.image} alt={image.name}/>
+      ))} */}
     </div>
   );
 }
@@ -21,8 +23,12 @@ const rootStyle: CSSProperties = {
   background: "yellow",
   height: "400px",
   width: "300px",
-  border: "solid 2px",
   flexFlow: "column wrap",
 };
+
+const imgStyle: CSSProperties = {
+  width: '20rem',
+  height: '23rem'
+}
 
 export default CoffeeCard;
