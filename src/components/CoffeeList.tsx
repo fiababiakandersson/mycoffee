@@ -1,21 +1,34 @@
 // import { Outlet } from "react-router-dom"
 import CoffeeCard from "./CoffeeCard";
-import { coffeeData } from "../data";
-import { CSSProperties, useState } from "react";
+import { coffeeData, Data } from "../data";
+import { Component, CSSProperties } from "react";
 import ErrorBoundary from "./ErrorBoundary";
 
-function CoffeeList() {
-  const [coffees] = useState(coffeeData);
+interface Props {}
 
-  return (
-    <ErrorBoundary>
-      <div style={rootStyle}>
-        {coffees.map((coffee) => (
-          <CoffeeCard key={coffee.id} data={coffee} />
-        ))}
-      </div>
-    </ErrorBoundary>
-  );
+interface State {
+  coffees: Data[];
+}
+
+class CoffeeList extends Component<Props, State> {
+  constructor(props: Props) {
+    super(props);
+    this.state = {
+      coffees: coffeeData,
+    };
+  }
+
+  render() {
+    return (
+      <ErrorBoundary>
+        <div style={rootStyle}>
+          {this.state.coffees.map((coffee) => (
+            <CoffeeCard key={coffee.id} data={coffee} />
+          ))}
+        </div>
+      </ErrorBoundary>
+    );
+  }
 }
 
 const rootStyle: CSSProperties = {
