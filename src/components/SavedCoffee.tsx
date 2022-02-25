@@ -1,7 +1,6 @@
 function SavedCoffee() {
-    return 
-    <div>
-    </div>
+  return;
+  <div>THIS IS SAVED COFFEE LIST</div>;
 }
 
 export default SavedCoffee;
