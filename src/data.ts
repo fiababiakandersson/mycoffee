@@ -28,7 +28,7 @@ export const coffeeData: Data[] = [
     image: Breve,
   },
   {
-    name: "Caffe Latte",
+    name: "Latte",
     description: "Espresso with milkfoam",
     ingredients: "Espresso, milk",
     id: "2",
@@ -64,7 +64,7 @@ export const coffeeData: Data[] = [
     image: Cortado,
   },
   {
-    name: "Red eye",
+    name: "Red Eye",
     description: "asdjaslfjaslfjaslkjfsjflkjaslfjlasj",
     ingredients: "kjwklwjqfljlwqjlfjwqfkljlq",
     id: "7",
