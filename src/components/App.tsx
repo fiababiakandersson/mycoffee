@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
+import About from "./About";
 import "./App.css";
 import CoffeeList from "./CoffeeList";
 import Contact from "./Contact";
@@ -62,7 +63,7 @@ function App() {
             <Route index element={<CoffeeList newData={newData} />} />
           )}
           <Route path="saved" element={<div>Saved</div>} />
-          <Route path="about" element={<div>About</div>} />
+          <Route path="about" element={<About />}/>
           <Route path="contact" element={<Contact />} />
           <Route path="*" element={<div>404 PAGE NOT FOUND</div>} />
         </Route>

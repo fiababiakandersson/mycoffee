@@ -1,6 +1,5 @@
 import { CSSProperties } from "react";
 import { JSONValue } from "./App";
-//import { Data } from "../data";
 import HeartIcon from "./HeartIcon";
 
 interface Props {
@@ -11,11 +10,11 @@ function CoffeeCard(props: Props) {
   // throw Error("oops222");
   return (
     <div style={rootStyle}>
+      <img style={imgStyle} src={props.data.image} alt={props.data.title} />
       {/* <h1>{props.data.name}</h1>
       <p>{props.data.description}</p>
       <p>{props.data.ingredients}</p> 
       <p>{props.data.id}</p> */}
-      <img style={imgStyle} src={props.data.image} alt={props.data.title} />
       <HeartIcon isLiked={true} />
     </div>
   );
