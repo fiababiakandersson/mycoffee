@@ -35,7 +35,11 @@ class HeartIcon extends Component<Props, State> {
 const heartStyle: CSSProperties = {
   fontSize: "2rem",
   marginLeft: "1rem",
-  color: "red",
+  color: "#F57777",
+  position: "absolute",
+  bottom: "2rem",
+  left: "1rem",
+  zIndex: "99",
 };
 
 export default HeartIcon;

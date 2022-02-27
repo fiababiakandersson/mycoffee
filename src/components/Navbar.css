@@ -1,51 +1,58 @@
 .search {
-    margin-top: 1rem;
-    padding-bottom: 0;
-  }
-  
-  .search-form {
-    width: var(--smallWidth);
-    margin: 0 auto;
-    max-width: var(--maxWidth);
-    background: var(--mainWhite);
-    padding: 2rem 2.5rem;
-    text-transform: capitalize;
-    border-radius: var(--mainBorderRadius);
-    box-shadow: var(--lightShadow);
-  }
+  margin-top: 1rem;
+  padding-bottom: 0;
+}
 
-  .form {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      height: 300px;
-  }
-  
-  .form label {
-    display: block;
-    text-align: center;
-    margin-bottom: 1.25rem;
-    color: #3D2314;
-    font-size: 1.5rem;
-    font-family: arial;
-  }
+.search-form {
+  width: var(--smallWidth);
+  margin: 0 auto;
+  max-width: var(--maxWidth);
+  background: var(--mainWhite);
+  padding: 2rem 2.5rem;
+  text-transform: capitalize;
+  border-radius: var(--mainBorderRadius);
+  box-shadow: var(--lightShadow);
+}
 
-  .form input {
-    width: 600px;
-    border: none;
-    font-size: 11px;
-    background: #E7E2DA;
-    color: #3D2314;
-    border-radius: 10px;
-    padding: 0.5rem;
-    font-size: 1.2rem;
-  }
+.form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 300px;
+}
 
-  .filter-name {
-      color: #603814;
-  }
+.form label {
+  display: block;
+  text-align: center;
+  margin-bottom: 1.25rem;
+  color: #3d2314;
+  font-size: 1.5rem;
+}
 
-  .coffeebean-logo {
-    display: flex;
-    justify-content: center;
-  }
+.form input {
+  font-family: "Montserrat", sans-serif;
+  width: 90%;
+  max-width: 600px;
+  border: none;
+  font-size: 11px;
+  background: #e7e2da;
+  color: #3d2314;
+  border-radius: 10px;
+  padding: 0.5rem;
+  font-size: 1.2rem;
+}
+
+input:focus,
+input:hover {
+  box-shadow: 0 0 5px rgba(88, 45, 18, 0.5);
+  outline: 0 none;
+}
+
+.filter-name {
+  color: #603814;
+}
+
+.coffeebean-logo {
+  display: flex;
+  justify-content: center;
+}

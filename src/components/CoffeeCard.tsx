@@ -1,35 +1,37 @@
-import { CSSProperties, useState } from "react";
-import { coffeeData, Data } from "../data";
+import { CSSProperties } from "react";
+import { JSONValue } from "./App";
 import HeartIcon from "./HeartIcon";
 
 interface Props {
-  data: Data;
+  data: JSONValue;
 }
 
-function CoffeeCard(props:Props) {
-  const [images] = useState(coffeeData);
+function CoffeeCard(props: Props) {
   // throw Error("oops222");
   return (
     <div style={rootStyle}>
-      <img style={imgStyle}src={props.data.image} alt={props.data.name} />
-      <h1>{props.data.name}</h1>
+      <img style={imgStyle} src={props.data.image} alt={props.data.title} />
+      {/* <h1>{props.data.name}</h1>
       <p>{props.data.description}</p>
-      <p>{props.data.ingredients}</p>
-      <p>{props.data.id}</p>
+      <p>{props.data.ingredients}</p> 
+      <p>{props.data.id}</p> */}
       <HeartIcon isLiked={true} />
     </div>
   );
 }
 
 const rootStyle: CSSProperties = {
-  background: "none",
-  height: "100%",
+  position: "relative",
+  //background: "rgba(255,255,0,0.5)",
   width: "300px",
+  padding: ".5rem 1rem",
   flexFlow: "column wrap",
+  cursor: "pointer",
+  textAlign: "center",
 };
 
 const imgStyle: CSSProperties = {
-  width: '12rem',
-}
+  height: "350px",
+};
 
 export default CoffeeCard;

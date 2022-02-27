@@ -1,16 +1,9 @@
 body {
   margin: 0;
-  font-family: 'Montserrat', sans-serif;
-  letter-spacing: .5px;
+  font-family: "Montserrat", sans-serif;
+  letter-spacing: 0.5px;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: #F4F3F2;
+  background-color: #f6f4f2;
   color: #261103;
 }
-
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
-}
-
-
