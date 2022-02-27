@@ -38,6 +38,10 @@ function App() {
       for (let x = 0; x < jsonData.length; x++) {
         if (jsonData[x].title === coffeeData[i].name) {
           jsonData[x].image = coffeeData[i].image;
+        } else {
+          // TO BE FOLLOWED-UP: insert the src of a generic image to below
+          jsonData[x].image =
+            "FOLLOW UP!!!: a generic image for those without a pic";
         }
         if (!jsonData[x].image) {
           // TO BE FOLLOWED-UP: insert the src of a generic image to below
