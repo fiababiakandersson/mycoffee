@@ -1,20 +1,24 @@
 // import { Outlet } from "react-router-dom"
+// import { coffeeData, Data } from "../data";
 import CoffeeCard from "./CoffeeCard";
-import { coffeeData, Data } from "../data";
 import { Component, CSSProperties } from "react";
 import ErrorBoundary from "./ErrorBoundary";
+import { JSONValues } from "./App";
+// import { newData, JSONValues } from "./App";
 
-interface Props {}
+interface Props {
+  newData: JSONValues;
+}
 
 interface State {
-  coffees: Data[];
+  coffees: JSONValues;
 }
 
 class CoffeeList extends Component<Props, State> {
   constructor(props: Props) {
     super(props);
     this.state = {
-      coffees: coffeeData,
+      coffees: this.props.newData,
     };
   }
 
