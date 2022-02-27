@@ -2,7 +2,6 @@
 // import { coffeeData, Data } from "../data";
 import CoffeeCard from "./CoffeeCard";
 import { Component, CSSProperties } from "react";
-import ErrorBoundary from "./ErrorBoundary";
 import { JSONValues } from "./App";
 // import { newData, JSONValues } from "./App";
 
@@ -24,13 +23,11 @@ class CoffeeList extends Component<Props, State> {
 
   render() {
     return (
-      <ErrorBoundary>
-        <div style={rootStyle}>
-          {this.state.coffees.map((coffee) => (
-            <CoffeeCard key={coffee.id} data={coffee} />
-          ))}
-        </div>
-      </ErrorBoundary>
+      <div style={rootStyle}>
+        {this.state.coffees.map((coffee) => (
+          <CoffeeCard key={coffee.id} data={coffee} />
+        ))}
+      </div>
     );
   }
 }
