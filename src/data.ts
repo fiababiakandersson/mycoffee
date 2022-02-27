@@ -1,4 +1,16 @@
 import Breve from "./assets/breve.webp"
+import CaffeLatte from "./assets/caffe-latte.webp"
+import Cappuccino from "./assets/cappuccino.webp"
+import Americano from "./assets/americano.webp"
+import Espresso from "./assets/espresso.webp"
+import Cortado from "./assets/cortado.webp"
+import RedEye from "./assets/red-eye.webp"
+import Macchiato from "./assets/macchiato.webp"
+import Mocha from "./assets/mocha.webp"
+import FlatWhite from "./assets/flat-white.webp"
+import Affogato from "./assets/affogato.webp"
+import CafeAuLait from "./assets/cafe-au-lait.webp"
+
 
 export interface Data {
   name: string; 
@@ -21,7 +33,7 @@ export const coffeeData: Data[] = [
     description: "Espresso with milkfoam",
     ingredients: "Espresso, milk",
     id: "2",
-    image: "../assets/caffe-latte.webp"
+    image: CaffeLatte,
   },
   {
     name: "Cappuccino",
@@ -29,43 +41,71 @@ export const coffeeData: Data[] = [
       "Blablabla and blablabla and blablabla and blablabla and blablabla and blablabla ",
     ingredients: "lots of coffee!!",
     id: "3",
-    image: "../assets/cappuccino.webp"
+    image: Cappuccino,
   },
   {
     name: "Americano",
     description: "asdjaslfjaslfjaslkjfsjflkjaslfjlasj",
     ingredients: "kjwklwjqfljlwqjlfjwqfkljlq",
     id: "4",
-    image: "../assets/americano.webp"
+    image: Americano,
   },
   {
     name: "Espresso",
     description: "asdjaslfjaslfjaslkjfsjflkjaslfjlasj",
     ingredients: "kjwklwjqfljlwqjlfjwqfkljlq",
     id: "5",
-    image: "../assets/espresso.webp"
+    image: Espresso,
   },
   {
     name: "Cortado",
     description: "asdjaslfjaslfjaslkjfsjflkjaslfjlasj",
     ingredients: "kjwklwjqfljlwqjlfjwqfkljlq",
     id: "6",
-    image: "../assets/cortado.webp"
+    image: Cortado,
   },
   {
     name: "Red eye",
     description: "asdjaslfjaslfjaslkjfsjflkjaslfjlasj",
     ingredients: "kjwklwjqfljlwqjlfjwqfkljlq",
     id: "7",
-    image: "../assets/red-eye.webp"
+    image: RedEye
   },
   {
-    name: "wqenqwkenqwkne",
+    name: "Macchiato",
     description: "asdjaslfjaslfjaslkjfsjflkjaslfjlasj",
     ingredients: "kjwklwjqfljlwqjlfjwqfkljlq",
     id: "8",
-    image: "../assets/.png"
+    image: Macchiato,
   },
-  
+  {
+    name: "Mocha",
+    description: "asdjaslfjaslfjaslkjfsjflkjaslfjlasj",
+    ingredients: "kjwklwjqfljlwqjlfjwqfkljlq",
+    id: "8",
+    image: Mocha,
+  },
+  {
+    name: "Flat White",
+    description: "asdjaslfjaslfjaslkjfsjflkjaslfjlasj",
+    ingredients: "kjwklwjqfljlwqjlfjwqfkljlq",
+    id: "8",
+    image: FlatWhite,
+  },
+  {
+    name: "Affogato",
+    description: "asdjaslfjaslfjaslkjfsjflkjaslfjlasj",
+    ingredients: "kjwklwjqfljlwqjlfjwqfkljlq",
+    id: "8",
+    image: Affogato,
+  },
+  {
+    name: "Café au Lait",
+    description: "asdjaslfjaslfjaslkjfsjflkjaslfjlasj",
+    ingredients: "kjwklwjqfljlwqjlfjwqfkljlq",
+    id: "8",
+    image: CafeAuLait,
+  },
+
 ];
 
