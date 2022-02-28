@@ -4,12 +4,18 @@ import Header from "./Header";
 import SearchBar from "./SearchBar";
 import { ErrorBoundary } from "react-error-boundary";
 import NotFound from "./NotFound";
+import { Coffee } from "./App";
 
-function Layout() {
+interface Props {
+  coffees: Coffee[];
+  onFiltered: (filteredCoffees: Coffee[]) => void;
+}
+
+function Layout(props: Props) {
   return (
     <div style={rootStyle}>
       <Header />
-      <SearchBar />
+      <SearchBar coffees={props.coffees} onFiltered={props.onFiltered}/>
       <ErrorBoundary FallbackComponent={NotFound}>
         <Outlet />
       </ErrorBoundary>

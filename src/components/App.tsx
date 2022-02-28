@@ -9,7 +9,7 @@ import { coffeeData } from "../data";
 import NotFound from "./NotFound";
 import SingleCoffee from "./SingleCoffee";
 
-export interface JSONValue {
+export interface Coffee {
   title: string;
   id: number;
   description: string;
@@ -17,10 +17,9 @@ export interface JSONValue {
   image: string;
 }
 
-export interface JSONValues extends Array<JSONValue> {}
-
 function App() {
-  const [newData, setData] = useState<JSONValues>([]);
+  const [newData, setData] = useState<Coffee[]>([]);
+  const [filteredCoffees, setFilteredCoffees] = useState<Coffee[]>([]);
 
   useEffect(() => {
     fetch("https://api.sampleapis.com/coffee/hot")
@@ -29,14 +28,14 @@ function App() {
         return response.json();
       })
       // tag on another then method whereby we get the data
-      .then((jsonData: JSONValue[]) => {
+      .then((jsonData: Coffee[]) => {
         jsonData = compareData(jsonData);
+        setFilteredCoffees(jsonData);
         setData(jsonData);
-        console.log(jsonData);
       });
   }, []);
 
-  const compareData = (jsonData: JSONValue[]) => {
+  const compareData = (jsonData: Coffee[]) => {
     for (let i = 0; i < coffeeData.length; i++) {
       for (let x = 0; x < jsonData.length; x++) {
         if (jsonData[x].title === coffeeData[i].name) {
@@ -52,19 +51,21 @@ function App() {
     return jsonData;
   };
 
+  console.log(filteredCoffees);
+
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Layout />}>
+        <Route path="/" element={<Layout coffees={newData} onFiltered={setFilteredCoffees}/>}>
           {/* logic: if the left part is an empty array (which returns fault) then it won't load the right; and if left is true, it goes to right and output the right on the screen */}
           {newData.length > 0 && (
-            <Route index element={<CoffeeList newData={newData} />} />
+            <Route index element={<CoffeeList coffees={filteredCoffees} />} />
           )}
           {/* {newData.length > 0 && ( */}
           <Route path="/cards/:id" element={<SingleCoffee data={newData} />} />
           {/* )} */}
           <Route path="saved" element={<div>Saved</div>} />
-          <Route path="about" element={<About />} />
+          <Route path="/about" element={<About />} />
           <Route path="contact" element={<Contact />} />
           <Route path="*" element={<NotFound />} />
         </Route>
