@@ -1,4 +1,4 @@
-import { CSSProperties, useState } from "react";
+import { CSSProperties } from "react";
 import { Link } from "react-router-dom";
 import { Coffee } from "./App";
 import HeartIcon from "./HeartIcon";
@@ -8,35 +8,21 @@ interface Props {
   onLikeChange: () => void;
 }
 
-interface State {
-  liked: boolean;
-}
-
-function CoffeeCard(props: Props, state: State) {
-  const [liked, setLiked] = useState(false);
-
-  const handleLike = (id: string) => {
-    liked ? setLiked(false) : setLiked(true);
-    liked ? props.onLikeChange() : props.onLikeChange();
-  };
-
-  // throw Error("oops222");
+function CoffeeCard(props: Props) {
   return (
     <div style={rootStyle}>
       <Link to={`/cards/${props.data.id}`}>
         <img style={imgStyle} src={props.data.image} alt={props.data.title} />
       </Link>
-      {/* <h1>{props.data.name}</h1>
-      <p>{props.data.description}</p>
-      <p>{props.data.ingredients}</p> 
-      <p>{props.data.id}</p> */}
-      <HeartIcon isLiked={liked} onLiked={() => handleLike(props.data.id)} />
+      <HeartIcon
+        isLiked={props.data.isLiked}
+        onLiked={() => props.onLikeChange()}
+      />
     </div>
   );
 }
 
 const rootStyle: CSSProperties = {
-  //background: "rgba(255,255,0,0.5)",
   position: "relative",
   width: "300px",
   padding: ".5rem 1rem",
