@@ -3,8 +3,6 @@ import { Outlet, useNavigate } from "react-router-dom";
 import ErrorBoundary from "./ErrorBoundary";
 import Header from "./Header";
 import SearchBar from "./SearchBar";
-import { ErrorBoundary } from "react-error-boundary";
-import NotFound from "./NotFound";
 import { Coffee } from "./App";
 
 interface Props {
@@ -13,11 +11,12 @@ interface Props {
 }
 
 function Layout(props: Props) {
+  const navigate = useNavigate();
   return (
     <div style={rootStyle}>
       <Header />
-      <SearchBar coffees={props.coffees} onFiltered={props.onFiltered}/>
-      <ErrorBoundary FallbackComponent={NotFound}>
+      <SearchBar coffees={props.coffees} onFiltered={props.onFiltered} />
+      <ErrorBoundary onGoBack={() => navigate("/")}>
         <Outlet />
       </ErrorBoundary>
     </div>

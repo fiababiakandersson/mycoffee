@@ -1,8 +1,8 @@
 import { CSSProperties, useState } from "react";
-import { JSONValues } from "./App";
+import { Coffee } from "./App";
 import CoffeeCard from "./CoffeeCard";
 interface Props {
-  data: JSONValues;
+  data: Coffee[];
 }
 function SavedCoffeeList(props: Props) {
   const likedCoffeeArr = localStorage.getItem("likedCoffee");
