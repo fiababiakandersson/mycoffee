@@ -1,7 +1,6 @@
 import CoffeeCard from "./CoffeeCard";
 import { Component, CSSProperties } from "react";
 import { JSONValues } from "./App";
-import { Link } from "react-router-dom";
 
 interface Props {
   newData: JSONValues;
@@ -41,13 +40,11 @@ class CoffeeList extends Component<Props, State> {
     return (
       <div style={rootStyle}>
         {this.state.coffees.map((coffee) => (
-          <Link to={`/cards/${coffee.id}`}>
-            <CoffeeCard
-              key={coffee.id}
-              data={coffee}
-              onLikeChange={() => this.updateLike(coffee.id)}
-            />
-          </Link>
+          <CoffeeCard
+            key={coffee.id}
+            data={coffee}
+            onLikeChange={() => this.updateLike(coffee.id)}
+          />
         ))}
       </div>
     );
