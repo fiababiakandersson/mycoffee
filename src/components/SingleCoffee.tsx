@@ -1,5 +1,4 @@
 import { useParams } from "react-router-dom";
-
 import "./SingleCoffee.css"
 import { Coffee } from "./App";
 
