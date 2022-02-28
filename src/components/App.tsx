@@ -7,6 +7,7 @@ import Contact from "./Contact";
 import Layout from "./Layout";
 import { coffeeData } from "../data";
 import NotFound from "./NotFound";
+import SingleCoffee from "./SingleCoffee";
 
 export interface JSONValue {
   title: string;
@@ -59,6 +60,9 @@ function App() {
           {newData.length > 0 && (
             <Route index element={<CoffeeList newData={newData} />} />
           )}
+          {/* {newData.length > 0 && ( */}
+          <Route path="/cards/:id" element={<SingleCoffee data={newData} />} />
+          {/* )} */}
           <Route path="saved" element={<div>Saved</div>} />
           <Route path="about" element={<About />} />
           <Route path="contact" element={<Contact />} />
