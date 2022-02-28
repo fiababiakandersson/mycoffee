@@ -32,7 +32,6 @@ function App() {
       .then((jsonData: JSONValue[]) => {
         jsonData = compareData(jsonData);
         setData(jsonData);
-        console.log(jsonData);
       });
   }, []);
 

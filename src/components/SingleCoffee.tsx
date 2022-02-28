@@ -1,20 +1,29 @@
 import { useParams } from "react-router-dom";
 import { JSONValues } from "./App";
+import "./SingleCoffee.css"
 
 interface Props {
   data: JSONValues;
 }
 
 const SingleCoffee = (props: Props) => {
-  const id = useParams() as unknown as number;
-  // console.log(id);
-  // console.log(props.data[id].description);
+  const params = useParams<{ id: string }>();
+  const coffee = props.data.find(coffee => String(coffee.id) === params?.id)
+  if (!coffee) return null;
+
   return (
-    <div>
-      {/* <h1>hello world + {id}</h1> */}
-      {/* <p>{props.data[id].title}</p> */}
+    <div className="singleCoffeeContainer">
+      <div className="singleCoffeeContent">
+        <img className="singleCoffeImg" src={coffee.image} alt={coffee.title} />
+        <div className="coffeeTextContainer">
+          <div className="coffeeText"><span className="singleCoffeeSpan">Title: </span>{coffee.title}</div>
+          <div className="coffeeText"><span className="singleCoffeeSpan">Descripition: </span>{coffee.description}</div>
+          <div className="coffeeText"><span className="singleCoffeeSpan">Ingredients: </span>{coffee.ingredients}</div>
+        </div>
+      </div>
     </div>
   );
+  
 };
 
 export default SingleCoffee;
