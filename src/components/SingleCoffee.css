@@ -1,0 +1,36 @@
+
+.singleCoffeeContainer{
+    display: flex;
+    justify-content: center;
+    top: 0;
+}
+
+.singleCoffeeContent {
+    max-width: 70rem;
+    display: flex;
+    align-items: center;
+}
+
+.singleCoffeeImg {
+    max-width: 15rem;
+}
+
+.coffeeText {
+   display: flex;
+   
+}
+
+.coffeeTextContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+    margin-left: 5rem;
+}
+
+.singleCoffeeSpan {
+    background-color: #e7e2da;
+    max-height: 1.2rem;
+    border-radius: 3px;
+    padding: .3rem;
+    margin-right: 2rem;
+}
