@@ -1,19 +1,15 @@
 import { Component, CSSProperties, ErrorInfo, ReactNode } from "react";
-import { Navigate, useNavigate } from "react-router-dom";
+import errorImg from "../assets/error-coffee.webp";
 
 interface Props {
   children: ReactNode;
+  onGoBack: () => void;
 }
 
 interface State {
   hasError: boolean;
   message: string;
 }
-
-const handleClick = (state: State) => {
-  state.hasError = false;
-  console.log(state.hasError);
-};
 
 class ErrorBoundary extends Component<Props, State> {
   constructor(props: Props) {
@@ -29,13 +25,22 @@ class ErrorBoundary extends Component<Props, State> {
     console.error("Uncaught error: " + { error, errorInfo });
   }
 
+  resetState = () => {
+    this.setState({ hasError: false });
+    this.props.onGoBack();
+  };
+
   render() {
     if (this.state.hasError) {
       return (
         <div style={rootStyle}>
-          <div style={errorStyle}>{this.state.message}</div>
-          <button onClick={() => handleClick(this.state)}> back to Home</button>
-          {console.log(this.state.hasError)};
+          <h1 style={titleStyle}>Oops!</h1>
+          <img style={imgStyle} src={errorImg} alt="spilled coffee" />
+          <h2 style={titleStyle}>This page doesn't seem to exist.</h2>
+          <button style={buttonStyle} onClick={this.resetState}>
+            Back to Home
+          </button>
+          {console.log(this.state.hasError)}
         </div>
       );
     }
@@ -46,14 +51,31 @@ class ErrorBoundary extends Component<Props, State> {
 export default ErrorBoundary;
 
 const rootStyle: CSSProperties = {
-  minHeight: "25rem",
+  minHeight: "30rem",
   textAlign: "center",
+  color: "#642801",
 };
 
-const errorStyle: CSSProperties = {
-  fontSize: "2rem",
+const titleStyle: CSSProperties = {
+  color: "#642801",
+};
+
+const imgStyle: CSSProperties = {
+  width: "300px",
+  marginTop: "-1.5rem",
+};
+
+const buttonStyle: CSSProperties = {
+  fontFamily: "Montserrat",
+  background: "#3D2314",
+  color: "white",
+  textTransform: "capitalize",
   fontWeight: "bold",
-  marginTop: "5rem",
+  fontSize: "1rem",
+  padding: ".8rem 1rem",
+  borderRadius: "10px",
+  border: "none",
+  marginTop: "1rem",
 };
 
 // search bar

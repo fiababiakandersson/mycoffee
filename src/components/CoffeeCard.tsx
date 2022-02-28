@@ -1,9 +1,10 @@
 import { CSSProperties, useState } from "react";
-import { JSONValue } from "./App";
+import { Link } from "react-router-dom";
+import { Coffee } from "./App";
 import HeartIcon from "./HeartIcon";
 
 interface Props {
-  data: JSONValue;
+  data: Coffee;
   onLikeChange: () => void;
 }
 
@@ -22,7 +23,9 @@ function CoffeeCard(props: Props, state: State) {
   // throw Error("oops222");
   return (
     <div style={rootStyle}>
-      <img style={imgStyle} src={props.data.image} alt={props.data.title} />
+      <Link to={`/cards/${props.data.id}`}>
+        <img style={imgStyle} src={props.data.image} alt={props.data.title} />
+      </Link>
       {/* <h1>{props.data.name}</h1>
       <p>{props.data.description}</p>
       <p>{props.data.ingredients}</p> 
@@ -33,8 +36,8 @@ function CoffeeCard(props: Props, state: State) {
 }
 
 const rootStyle: CSSProperties = {
-  position: "relative",
   //background: "rgba(255,255,0,0.5)",
+  position: "relative",
   width: "300px",
   padding: ".5rem 1rem",
   flexFlow: "column wrap",

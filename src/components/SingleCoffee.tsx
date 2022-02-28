@@ -1,9 +1,10 @@
 import { useParams } from "react-router-dom";
-import { JSONValues } from "./App";
+
 import "./SingleCoffee.css"
+import { Coffee } from "./App";
 
 interface Props {
-  data: JSONValues;
+  data: Coffee[];
 }
 
 const SingleCoffee = (props: Props) => {

@@ -13,96 +13,69 @@ import CafeAuLait from "./assets/cafe-au-lait.webp";
 
 export interface Data {
   name: string;
-  description: string;
-  ingredients: string;
-  id: string;
   image: string;
+  id: string;
 }
 
 export const coffeeData: Data[] = [
   {
-    name: "Breve",
-    description: "Description",
-    ingredients: "this and that and this and that",
-    id: "1",
+    name: "Black",
     image: Breve,
+    id: "1",
   },
   {
     name: "Latte",
-    description: "Espresso with milkfoam",
-    ingredients: "Espresso, milk",
-    id: "2",
     image: CaffeLatte,
+    id: "2",
   },
   {
     name: "Cappuccino",
-    description:
-      "Blablabla and blablabla and blablabla and blablabla and blablabla and blablabla ",
-    ingredients: "lots of coffee!!",
-    id: "3",
     image: Cappuccino,
+    id: "3",
   },
   {
     name: "Americano",
-    description: "asdjaslfjaslfjaslkjfsjflkjaslfjlasj",
-    ingredients: "kjwklwjqfljlwqjlfjwqfkljlq",
-    id: "4",
     image: Americano,
+    id: "4",
   },
   {
     name: "Espresso",
-    description: "asdjaslfjaslfjaslkjfsjflkjaslfjlasj",
-    ingredients: "kjwklwjqfljlwqjlfjwqfkljlq",
-    id: "5",
     image: Espresso,
+    id: "5",
   },
   {
     name: "Cortado",
-    description: "asdjaslfjaslfjaslkjfsjflkjaslfjlasj",
-    ingredients: "kjwklwjqfljlwqjlfjwqfkljlq",
-    id: "6",
     image: Cortado,
+    id: "6",
   },
   {
     name: "Red Eye",
-    description: "asdjaslfjaslfjaslkjfsjflkjaslfjlasj",
-    ingredients: "kjwklwjqfljlwqjlfjwqfkljlq",
-    id: "7",
     image: RedEye,
+    id: "7",
   },
   {
     name: "Macchiato",
-    description: "asdjaslfjaslfjaslkjfsjflkjaslfjlasj",
-    ingredients: "kjwklwjqfljlwqjlfjwqfkljlq",
-    id: "8",
     image: Macchiato,
+    id: "8",
   },
   {
     name: "Mocha",
-    description: "asdjaslfjaslfjaslkjfsjflkjaslfjlasj",
-    ingredients: "kjwklwjqfljlwqjlfjwqfkljlq",
-    id: "9",
     image: Mocha,
+    id: "9",
   },
   {
     name: "Flat White",
-    description: "asdjaslfjaslfjaslkjfsjflkjaslfjlasj",
-    ingredients: "kjwklwjqfljlwqjlfjwqfkljlq",
-    id: "10",
     image: FlatWhite,
+    id: "10",
   },
   {
     name: "Affogato",
-    description: "asdjaslfjaslfjaslkjfsjflkjaslfjlasj",
-    ingredients: "kjwklwjqfljlwqjlfjwqfkljlq",
-    id: "11",
     image: Affogato,
+    id: "11",
   },
   {
     name: "Café au Lait",
-    description: "asdjaslfjaslfjaslkjfsjflkjaslfjlasj",
-    ingredients: "kjwklwjqfljlwqjlfjwqfkljlq",
-    id: "12",
     image: CafeAuLait,
+    id: "12",
   },
 ];
