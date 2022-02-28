@@ -99,7 +99,16 @@ function App() {
             />
           )}
           <Route path="/cards/:id" element={<SingleCoffee data={coffees} />} />
-          <Route path="saved" element={<SavedCoffeeList coffees={coffees} />} />
+          <Route
+            path="saved"
+            element={
+              <SavedCoffeeList
+                onLikeChange={updateLike}
+                coffees={coffees}
+                likedCoffee={likedCoffee}
+              />
+            }
+          />
           <Route path="/about" element={<About />} />
           <Route path="contact" element={<Contact />} />
           <Route path="*" element={<NotFound />} />
