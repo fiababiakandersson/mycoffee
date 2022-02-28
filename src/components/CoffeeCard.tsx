@@ -15,7 +15,7 @@ interface State {
 function CoffeeCard(props: Props, state: State) {
   const [liked, setLiked] = useState(false);
 
-  const handleLike = (id: number) => {
+  const handleLike = (id: string) => {
     liked ? setLiked(false) : setLiked(true);
     liked ? props.onLikeChange() : props.onLikeChange();
   };

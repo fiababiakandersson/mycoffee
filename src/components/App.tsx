@@ -8,10 +8,11 @@ import Layout from "./Layout";
 import { coffeeData } from "../data";
 import NotFound from "./NotFound";
 import SingleCoffee from "./SingleCoffee";
+import SavedCoffeeList from "./SavedCoffeeList";
 
 export interface Coffee {
   title: string;
-  id: number;
+  id: string;
   description: string;
   ingredients: string[];
   image: string;
@@ -51,12 +52,13 @@ function App() {
     return jsonData;
   };
 
-  console.log(filteredCoffees);
-
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Layout coffees={newData} onFiltered={setFilteredCoffees}/>}>
+        <Route
+          path="/"
+          element={<Layout coffees={newData} onFiltered={setFilteredCoffees} />}
+        >
           {/* logic: if the left part is an empty array (which returns fault) then it won't load the right; and if left is true, it goes to right and output the right on the screen */}
           {newData.length > 0 && (
             <Route index element={<CoffeeList coffees={filteredCoffees} />} />
@@ -64,7 +66,7 @@ function App() {
           {/* {newData.length > 0 && ( */}
           <Route path="/cards/:id" element={<SingleCoffee data={newData} />} />
           {/* )} */}
-          <Route path="saved" element={<div>Saved</div>} />
+          <Route path="saved" element={<SavedCoffeeList coffees={newData} />} />
           <Route path="/about" element={<About />} />
           <Route path="contact" element={<Contact />} />
           <Route path="*" element={<NotFound />} />

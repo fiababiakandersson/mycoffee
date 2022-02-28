@@ -1,31 +1,30 @@
 import CoffeeCard from "./CoffeeCard";
 import { Component, CSSProperties } from "react";
 import { Coffee } from "./App";
-import { Link } from "react-router-dom";
 
 interface Props {
   coffees: Coffee[];
 }
 
 interface State {
-  coffees: Coffee[];
-  likedCoffeeArr: number[];
+  // coffees: Coffee[];
+  likedCoffeeArr: string[];
 }
 
 class CoffeeList extends Component<Props, State> {
   constructor(props: Props) {
     super(props);
     this.state = {
-      coffees: this.props.coffees,
+      // coffees: this.props.coffees,
       likedCoffeeArr: JSON.parse(localStorage.likedCoffee || "[]"),
     };
   }
 
-  updateLS = (arr: number[]) => {
+  updateLS = (arr: string[]) => {
     localStorage.likedCoffee = JSON.stringify(arr);
   };
 
-  updateLike = (id: number) => {
+  updateLike = (id: string) => {
     const arr = this.state.likedCoffeeArr;
     const coffeeIndex = arr.indexOf(id);
     if (coffeeIndex !== -1) {
@@ -41,13 +40,11 @@ class CoffeeList extends Component<Props, State> {
     return (
       <div style={rootStyle}>
         {this.props.coffees.map((coffee) => (
-          <Link to={`/cards/${coffee.id}`}>
-            <CoffeeCard
-              key={coffee.id}
-              data={coffee}
-              onLikeChange={() => this.updateLike(coffee.id)}
-            />
-          </Link>
+          <CoffeeCard
+            key={coffee.id}
+            data={coffee}
+            onLikeChange={() => this.updateLike(coffee.id)}
+          />
         ))}
       </div>
     );
