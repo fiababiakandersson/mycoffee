@@ -1,5 +1,6 @@
 import { CSSProperties } from "react";
-import { Outlet } from "react-router-dom";
+import { Outlet, useNavigate } from "react-router-dom";
+import ErrorBoundary from "./ErrorBoundary";
 import Header from "./Header";
 import SearchBar from "./SearchBar";
 import { ErrorBoundary } from "react-error-boundary";
