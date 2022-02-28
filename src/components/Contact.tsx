@@ -1,5 +1,5 @@
 function Contact() {
-  throw Error("This page is under construction");
+  throw Error("404 Page Not Found");
   return <div>This is CONTACT</div>;
 }
 

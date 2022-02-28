@@ -6,6 +6,7 @@ import CoffeeList from "./CoffeeList";
 import Contact from "./Contact";
 import Layout from "./Layout";
 import { coffeeData } from "../data";
+import NotFound from "./NotFound";
 
 export interface JSONValue {
   title: string;
@@ -39,10 +40,6 @@ function App() {
       for (let x = 0; x < jsonData.length; x++) {
         if (jsonData[x].title === coffeeData[i].name) {
           jsonData[x].image = coffeeData[i].image;
-        } else {
-          // TO BE FOLLOWED-UP: insert the src of a generic image to below
-          jsonData[x].image =
-            "FOLLOW UP!!!: a generic image for those without a pic";
         }
         if (!jsonData[x].image) {
           // TO BE FOLLOWED-UP: insert the src of a generic image to below
@@ -63,9 +60,9 @@ function App() {
             <Route index element={<CoffeeList newData={newData} />} />
           )}
           <Route path="saved" element={<div>Saved</div>} />
-          <Route path="about" element={<About />}/>
+          <Route path="about" element={<About />} />
           <Route path="contact" element={<Contact />} />
-          <Route path="*" element={<div>404 PAGE NOT FOUND</div>} />
+          <Route path="*" element={<NotFound />} />
         </Route>
       </Routes>
     </BrowserRouter>

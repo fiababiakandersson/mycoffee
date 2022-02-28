@@ -2,7 +2,6 @@
 // import { coffeeData, Data } from "../data";
 import CoffeeCard from "./CoffeeCard";
 import { Component, CSSProperties } from "react";
-import ErrorBoundary from "./ErrorBoundary";
 import { JSONValues } from "./App";
 // import { newData, JSONValues } from "./App";
 
@@ -12,6 +11,7 @@ interface Props {
 
 interface State {
   coffees: JSONValues;
+  likedCoffeeArr: number[];
 }
 
 class CoffeeList extends Component<Props, State> {
@@ -19,18 +19,37 @@ class CoffeeList extends Component<Props, State> {
     super(props);
     this.state = {
       coffees: this.props.newData,
+      likedCoffeeArr: JSON.parse(localStorage.likedCoffee || "[]"),
     };
   }
 
+  updateLS = (arr: number[]) => {
+    localStorage.likedCoffee = JSON.stringify(arr);
+  };
+
+  updateLike = (id: number) => {
+    const arr = this.state.likedCoffeeArr;
+    const coffeeIndex = arr.indexOf(id);
+    if (coffeeIndex !== -1) {
+      // as long as not -1, it means the item exists in the array
+      arr.splice(coffeeIndex, 1); // remove
+    } else {
+      arr.push(id); // add
+    }
+    this.updateLS(arr);
+  };
+
   render() {
     return (
-      <ErrorBoundary>
-        <div style={rootStyle}>
-          {this.state.coffees.map((coffee) => (
-            <CoffeeCard key={coffee.id} data={coffee} />
-          ))}
-        </div>
-      </ErrorBoundary>
+      <div style={rootStyle}>
+        {this.state.coffees.map((coffee) => (
+          <CoffeeCard
+            key={coffee.id}
+            data={coffee}
+            onLikeChange={() => this.updateLike(coffee.id)}
+          />
+        ))}
+      </div>
     );
   }
 }

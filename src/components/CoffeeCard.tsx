@@ -1,12 +1,24 @@
-import { CSSProperties } from "react";
+import { CSSProperties, useState } from "react";
 import { JSONValue } from "./App";
 import HeartIcon from "./HeartIcon";
 
 interface Props {
   data: JSONValue;
+  onLikeChange: () => void;
 }
 
-function CoffeeCard(props: Props) {
+interface State {
+  liked: boolean;
+}
+
+function CoffeeCard(props: Props, state: State) {
+  const [liked, setLiked] = useState(false);
+
+  const handleLike = (id: number) => {
+    liked ? setLiked(false) : setLiked(true);
+    liked ? props.onLikeChange() : props.onLikeChange();
+  };
+
   // throw Error("oops222");
   return (
     <div style={rootStyle}>
@@ -15,7 +27,7 @@ function CoffeeCard(props: Props) {
       <p>{props.data.description}</p>
       <p>{props.data.ingredients}</p> 
       <p>{props.data.id}</p> */}
-      <HeartIcon isLiked={true} />
+      <HeartIcon isLiked={liked} onLiked={() => handleLike(props.data.id)} />
     </div>
   );
 }
