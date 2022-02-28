@@ -1,13 +1,14 @@
 import CoffeeCard from "./CoffeeCard";
 import { Component, CSSProperties } from "react";
-import { JSONValues } from "./App";
+import { Coffee } from "./App";
+import { Link } from "react-router-dom";
 
 interface Props {
-  newData: JSONValues;
+  coffees: Coffee[];
 }
 
 interface State {
-  coffees: JSONValues;
+  coffees: Coffee[];
   likedCoffeeArr: number[];
 }
 
@@ -15,7 +16,7 @@ class CoffeeList extends Component<Props, State> {
   constructor(props: Props) {
     super(props);
     this.state = {
-      coffees: this.props.newData,
+      coffees: this.props.coffees,
       likedCoffeeArr: JSON.parse(localStorage.likedCoffee || "[]"),
     };
   }
@@ -39,12 +40,14 @@ class CoffeeList extends Component<Props, State> {
   render() {
     return (
       <div style={rootStyle}>
-        {this.state.coffees.map((coffee) => (
-          <CoffeeCard
-            key={coffee.id}
-            data={coffee}
-            onLikeChange={() => this.updateLike(coffee.id)}
-          />
+        {this.props.coffees.map((coffee) => (
+          <Link to={`/cards/${coffee.id}`}>
+            <CoffeeCard
+              key={coffee.id}
+              data={coffee}
+              onLikeChange={() => this.updateLike(coffee.id)}
+            />
+          </Link>
         ))}
       </div>
     );

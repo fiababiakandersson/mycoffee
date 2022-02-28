@@ -1,10 +1,9 @@
 import { CSSProperties, useState } from "react";
-import { Link } from "react-router-dom";
-import { JSONValue } from "./App";
+import { Coffee } from "./App";
 import HeartIcon from "./HeartIcon";
 
 interface Props {
-  data: JSONValue;
+  data: Coffee;
   onLikeChange: () => void;
 }
 
