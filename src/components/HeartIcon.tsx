@@ -19,10 +19,10 @@ const HeartIcon = (props: Props) => {
 };
 
 const heartStyle: CSSProperties = {
+  position: "absolute",
   fontSize: "2rem",
   marginLeft: "1rem",
   color: "#F57777",
-  position: "absolute",
   bottom: "2rem",
   left: "1rem",
   zIndex: "99",
