@@ -1,16 +1,17 @@
 import { CSSProperties } from "react";
-import { Outlet } from "react-router-dom";
+import { Outlet, useNavigate } from "react-router-dom";
+import ErrorBoundary from "./ErrorBoundary";
 import Header from "./Header";
 import Navbar from "./Navbar";
-import { ErrorBoundary } from "react-error-boundary";
-import NotFound from "./NotFound";
 
 function Layout() {
+  const navigate = useNavigate();
+
   return (
     <div style={rootStyle}>
       <Header />
       <Navbar />
-      <ErrorBoundary FallbackComponent={NotFound}>
+      <ErrorBoundary onGoBack={() => navigate("/")}>
         <Outlet />
       </ErrorBoundary>
     </div>
