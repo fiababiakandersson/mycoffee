@@ -4,21 +4,16 @@
 }
 
 .search-form {
-  width: var(--smallWidth);
   margin: 0 auto;
-  max-width: var(--maxWidth);
-  background: var(--mainWhite);
   padding: 2rem 2.5rem;
   text-transform: capitalize;
-  border-radius: var(--mainBorderRadius);
-  box-shadow: var(--lightShadow);
 }
 
 .form {
   display: flex;
   flex-direction: column;
   align-items: center;
-  height: 300px;
+  height: 80px;
 }
 
 .form label {
