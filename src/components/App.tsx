@@ -8,18 +8,25 @@ import Layout from "./Layout";
 import { coffeeData } from "../data";
 import NotFound from "./NotFound";
 import SingleCoffee from "./SingleCoffee";
+import SavedCoffeeList from "./SavedCoffeeList";
+import { useLocalStorageState } from "./useLocalStorageState";
 
 export interface Coffee {
   title: string;
-  id: number;
+  id: string;
   description: string;
   ingredients: string[];
   image: string;
+  isLiked: boolean;
 }
 
 function App() {
-  const [newData, setData] = useState<Coffee[]>([]);
+  const [coffees, setCoffees] = useState<Coffee[]>([]);
   const [filteredCoffees, setFilteredCoffees] = useState<Coffee[]>([]);
+  const [likedCoffee, setLikedCoffee] = useLocalStorageState<string[]>(
+    [],
+    "likedCoffee"
+  );
 
   useEffect(() => {
     fetch("https://api.sampleapis.com/coffee/hot")
@@ -31,7 +38,7 @@ function App() {
       .then((jsonData: Coffee[]) => {
         jsonData = compareData(jsonData);
         setFilteredCoffees(jsonData);
-        setData(jsonData);
+        setCoffees(jsonData);
       });
   }, []);
 
@@ -48,23 +55,60 @@ function App() {
         }
       }
     }
+
+    //Update liked status from local storage
+    for (let x = 0; x < jsonData.length; x++) {
+      const liked: boolean = likedCoffee.indexOf(jsonData[x].id) !== -1;
+      if (liked) {
+        jsonData[x].isLiked = liked;
+      }
+    }
     return jsonData;
   };
 
-  console.log(filteredCoffees);
+  const updateLike = (id: string) => {
+    const likedCoffeeIndex = likedCoffee.indexOf(id);
+    if (likedCoffeeIndex !== -1) {
+      // if it exists
+      likedCoffee.splice(likedCoffeeIndex, 1); // remove from LS
+      setLikedCoffee([...likedCoffee]); // update LS
+      coffees[parseInt(id) - 1].isLiked = false; // set isLiked to false
+    } else {
+      setLikedCoffee([...likedCoffee, id]);
+      coffees[parseInt(id) - 1].isLiked = true;
+    }
+  };
 
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Layout coffees={newData} onFiltered={setFilteredCoffees}/>}>
+        <Route
+          path="/"
+          element={<Layout coffees={coffees} onFiltered={setFilteredCoffees} />}
+        >
           {/* logic: if the left part is an empty array (which returns fault) then it won't load the right; and if left is true, it goes to right and output the right on the screen */}
-          {newData.length > 0 && (
-            <Route index element={<CoffeeList coffees={filteredCoffees} />} />
+          {coffees.length > 0 && (
+            <Route
+              index
+              element={
+                <CoffeeList
+                  onLikeChange={updateLike}
+                  coffees={filteredCoffees}
+                />
+              }
+            />
           )}
-          {/* {newData.length > 0 && ( */}
-          <Route path="/cards/:id" element={<SingleCoffee data={newData} />} />
-          {/* )} */}
-          <Route path="saved" element={<div>Saved</div>} />
+          <Route path="/cards/:id" element={<SingleCoffee data={coffees} />} />
+          <Route
+            path="saved"
+            element={
+              <SavedCoffeeList
+                onLikeChange={updateLike}
+                coffees={coffees}
+                likedCoffee={likedCoffee}
+              />
+            }
+          />
           <Route path="/about" element={<About />} />
           <Route path="contact" element={<Contact />} />
           <Route path="*" element={<NotFound />} />
