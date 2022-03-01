@@ -32,6 +32,7 @@ const rootStyle: CSSProperties = {
   justifyContent: "center",
   gap: "2rem",
   flexWrap: "wrap",
+  paddingBottom: "10rem",
 };
 
 export default SavedCoffeeList;

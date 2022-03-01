@@ -14,7 +14,7 @@ interface Props {
 function Layout(props: Props) {
   const navigate = useNavigate();
   return (
-    <div style={rootStyle}>
+    <div>
       <Header />
       <SearchBar coffees={props.coffees} onFiltered={props.onFiltered} />
       <ErrorBoundary onGoBack={() => navigate("/")}>
@@ -24,7 +24,5 @@ function Layout(props: Props) {
     </div>
   );
 }
-
-const rootStyle: CSSProperties = {};
 
 export default Layout;

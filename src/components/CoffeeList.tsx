@@ -25,8 +25,9 @@ const rootStyle: CSSProperties = {
   display: "flex",
   flexDirection: "row",
   justifyContent: "center",
-  gap: "2rem",
+  gap: "1rem 2rem",
   flexWrap: "wrap",
+  paddingBottom: "10rem",
 };
 
 export default CoffeeList;
