@@ -22,7 +22,6 @@ export interface Coffee {
 
 function App() {
   const [coffees, setCoffees] = useState<Coffee[]>([]);
-  const [filteredCoffees, setFilteredCoffees] = useState<Coffee[]>([]);
   const [likedCoffee, setLikedCoffee] = useLocalStorageState<string[]>(
     [],
     "likedCoffee"
@@ -37,7 +36,6 @@ function App() {
       // tag on another then method whereby we get the data
       .then((jsonData: Coffee[]) => {
         jsonData = compareData(jsonData);
-        setFilteredCoffees(jsonData);
         setCoffees(jsonData);
       });
   }, []);
@@ -83,7 +81,7 @@ function App() {
       <Routes>
         <Route
           path="/"
-          element={<Layout coffees={coffees} onFiltered={setFilteredCoffees} />}
+          element={<Layout />}
         >
           {/* logic: if the left part is an empty array (which returns fault) then it won't load the right; and if left is true, it goes to right and output the right on the screen */}
           {coffees.length > 0 && (
@@ -92,7 +90,7 @@ function App() {
               element={
                 <CoffeeList
                   onLikeChange={updateLike}
-                  coffees={filteredCoffees}
+                  coffees={coffees}
                 />
               }
             />
