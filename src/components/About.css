@@ -10,17 +10,39 @@
     margin: 1rem 1rem 1rem 1rem;
     font-family: 'Playfair Display', serif;
     height: 60px;
+    display: flex;
+    gap: 1rem;
+    align-items: flex-end;
 }
 
 .about-text {
     font-size: 1rem;
     color: #261103;
-    font-size: 20px;
+    font-size: 15px;
     width: 800px;
     font-family: 'Montserrat', sans-serif;
+}
+
+h2 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 16px;
 }
 
 .logo-about {
     height: 3rem;
     margin-left: 0.3rem;
+}
+
+/* MEDIA QUERIES */
+@media (max-width: 900px) {
+.about-text{
+    padding: 2rem;
+    width: 100%;
+}
+}
+
+@media (max-width: 310px) {
+.about-title {
+    width: 100%;
+}
 }

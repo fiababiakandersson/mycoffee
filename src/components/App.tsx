@@ -5,11 +5,12 @@ import "./App.css";
 import CoffeeList from "./CoffeeList";
 import Contact from "./Contact";
 import Layout from "./Layout";
-import { coffeeData, genericPicture } from "../data";
+import { coffeeData } from "../data";
 import NotFound from "./NotFound";
 import SingleCoffee from "./SingleCoffee";
 import SavedCoffeeList from "./SavedCoffeeList";
 import { useLocalStorageState } from "./useLocalStorageState";
+import GenericPicture from "../assets/genericpicture.png";
 
 export interface Coffee {
   title: string;
@@ -48,7 +49,7 @@ function App() {
         }
         if (!jsonData[x].image) {
           // TO BE FOLLOWED-UP: insert the src of a generic image to below
-          jsonData[x].image = genericPicture[i].image;
+          jsonData[x].image = GenericPicture;
         }
       }
     }
