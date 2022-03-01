@@ -12,7 +12,6 @@
   }
   .nav-links {
     display: flex;
-    
   }
   .nav-links a {
     background: #3D2314;
@@ -43,3 +42,25 @@
     .logo {
       width: 8rem;
     }
+
+@media (max-width: 650px) {
+  .nav-links{
+    display: inline;
+  }
+  .nav-links li {
+    margin: .5rem;
+  }
+}
+
+@media (max-width: 344px) {
+  a {
+    width: 2.9rem;
+  }
+  .nav-links a {
+    font-size: .75rem;
+    text-align: center;
+  }
+  .nav-links .responsive-link{
+    padding-right: 1.5rem;
+  }
+}
