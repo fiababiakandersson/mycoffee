@@ -1,0 +1,29 @@
+.footer-div {
+    height: 110px;
+    background: #e7e2da;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.footer-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 14px;
+}
+
+.footer-links {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    font-size: 13px;
+}
+
+.footer-links li {
+   margin: 0rem 0rem 0rem .5rem;
+}
+
+.footer-links a:hover {
+    color: #e7e2da;
+}
+
