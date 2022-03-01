@@ -1,7 +1,4 @@
-/* HEADER STYLING */
-
 .header {
-    background: var(--mainWhite);
     height: 10rem;
     display: flex;
     justify-content: space-between;
@@ -29,10 +26,11 @@
     font-size: 1rem;
     padding: 0.5rem 1.2rem .5rem 1.2rem;
     border-radius: 10px;
-    transition: var(--mainTransition);
+    transition: 150ms;
   }
   .nav-links a:hover {
-    color: var(--primaryColor);
+    color: #3D2314;
+    background: #f6f4f2; 
   }
   
     ul {
@@ -40,7 +38,7 @@
     }
     a {
       text-decoration: none;
-      color: var(--mainBlack);
+      color:#3D2314;
     }
     .logo {
       width: 8rem;
