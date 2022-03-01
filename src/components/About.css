@@ -18,9 +18,14 @@
 .about-text {
     font-size: 1rem;
     color: #261103;
-    font-size: 20px;
+    font-size: 15px;
     width: 800px;
     font-family: 'Montserrat', sans-serif;
+}
+
+h2 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 16px;
 }
 
 .logo-about {
