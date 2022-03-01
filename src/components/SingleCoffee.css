@@ -1,64 +1,65 @@
-
-.singleCoffeeContainer{
-    display: flex;
-    justify-content: center;
+.singleCoffeeContainer {
+  display: flex;
+  justify-content: center;
 }
 
 .singleCoffeeContent {
-    max-width: 70rem;
-    display: flex;
-    justify-items: center;
-    align-items: center;
+  max-width: 70rem;
+  display: flex;
+  justify-items: center;
+  align-items: center;
 }
 
 .singleCoffeImg {
-    max-width: 30rem;
+  max-width: 30rem;
 }
 
 .coffeeText {
-   display: flex;
+  display: flex;
 }
 
 .coffeeTextContainer {
-    display: flex;
-    flex-direction: column;
-    gap: 3rem;
-    margin-left: 5rem;
-    padding: 3rem;
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  margin-left: 5rem;
+  padding: 3rem;
 }
 
 .singleCoffeeSpan {
-    background-color: #e7e2da;
-    max-height: 1.2rem;
-    border-radius: 3px;
-    padding: .3rem;
-    margin-right: 2rem;
+  background-color: #e7e2da;
+  max-height: 1.2rem;
+  border-radius: 3px;
+  padding: 0.3rem;
+  margin-right: 2rem;
 }
 
 /* MEDIA QUERIES */
 
 @media (max-width: 870px) {
-.singleCoffeeContent{
+  .singleCoffeeContent {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-}
+  }
 
-.coffeeTextContainer {
+  .coffeeTextContainer {
     row-gap: 5rem;
-}
+    gap: 1rem;
+    margin-left: 0;
+  }
 }
 
 @media (max-width: 622px) {
-.coffeeText {
-   flex-wrap: wrap;  
-}
+  .coffeeText {
+    flex-wrap: wrap;
+  }
 
-.singleCoffeeSpan {
+  .singleCoffeeSpan {
     margin-bottom: 1.5rem;
-}
+  }
 
-.singleCoffeImg {
+  .singleCoffeImg {
     max-width: 19rem;
-}
+  }
 }
