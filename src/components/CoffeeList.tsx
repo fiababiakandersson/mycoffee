@@ -13,7 +13,7 @@ function CoffeeList(props: Props) {
       {props.coffees.map((coffee) => (
         <CoffeeCard
           key={coffee.id}
-          data={coffee}
+          coffee={coffee}
           onLikeChange={() => props.onLikeChange(coffee.id)}
         />
       ))}
