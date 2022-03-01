@@ -97,7 +97,12 @@ function App() {
               }
             />
           )}
-          <Route path="/cards/:id" element={<SingleCoffee data={coffees} />} />
+          <Route
+            path="/cards/:id"
+            element={
+              <SingleCoffee coffees={coffees} onLikeChange={updateLike} />
+            }
+          />
           <Route
             path="saved"
             element={

@@ -2,32 +2,44 @@ import { useParams } from "react-router-dom";
 import "./SingleCoffee.css";
 import { Coffee } from "./App";
 import BackButton from "./shared/BackButton";
+import HeartIcon from "./HeartIcon";
 
 interface Props {
-  data: Coffee[];
+  coffees: Coffee[];
+  onLikeChange: (id: string) => void;
 }
 
 const SingleCoffee = (props: Props) => {
   const params = useParams<{ id: string }>();
-  const coffee = props.data.find((coffee) => String(coffee.id) === params?.id);
+  const coffee = props.coffees.find(
+    (coffee) => String(coffee.id) === params?.id
+  );
   if (!coffee) return null;
 
   return (
     <div className="singleCoffeeContainer">
-      <div className="singleCoffeeContent">
-        <img className="singleCoffeImg" src={coffee.image} alt={coffee.title} />
-        <div className="coffeeTextContainer">
-          <div className="coffeeText">
-            <span className="singleCoffeeSpan">Title: </span>
-            {coffee.title}
+      <div className="content">
+        <div className="image-container">
+          <img src={coffee.image} alt={coffee.title} />
+          <div className="heart">
+            <HeartIcon
+              isLiked={coffee.isLiked}
+              onLiked={() => props.onLikeChange(coffee.id)}
+            />
           </div>
-          <div className="coffeeText">
-            <span className="singleCoffeeSpan">Descripition: </span>
-            {coffee.description}
+        </div>
+        <div className="text-container">
+          <div className="text">
+            <span className="span">Title: </span>
+            <p>{coffee.title}</p>
           </div>
-          <div className="coffeeText">
-            <span className="singleCoffeeSpan">Ingredients: </span>
-            {coffee.ingredients}
+          <div className="text">
+            <span className="span">Descripition: </span>
+            <p>{coffee.description}</p>
+          </div>
+          <div className="text">
+            <span className="span">Ingredients: </span>
+            <p>{coffee.ingredients}</p>
           </div>
           <BackButton content="Back" />
         </div>
