@@ -9,33 +9,19 @@ interface Props {
 }
 
 function SavedCoffeeList(props: Props) {
-  // const thisfunction = (id: string) => {
-  //   console.log("hello");
-  // };
-
-  // let savedList: Coffee[] = [];
-  // let list = localStorage.getItem("likedCoffee");
-  // if (list) {
-  //   let parsedList: string[] = JSON.parse(list);
-  //   for (let i = 0; i < props.coffees.length; i++) {
-  //     for (let x = 0; x < parsedList.length; x++) {
-  //       if (parsedList[x] === props.coffees[i].id) {
-  //         savedList.push(props.coffees[i]);
-  //       }
-  //       console.log(savedList);
-  //     }
-  //   }
-  // }
-
   return (
     <div style={rootStyle}>
-      {props.coffees.map((coffee) => (
-        <CoffeeCard
-          key={coffee.id}
-          data={coffee}
-          onLikeChange={() => props.onLikeChange(coffee.id)}
-        />
-      ))}
+      {props.coffees.map((coffee) => {
+        if (props.likedCoffee.includes(coffee.id)) {
+          return (
+            <CoffeeCard
+              key={coffee.id}
+              data={coffee}
+              onLikeChange={() => props.onLikeChange(coffee.id)}
+            />
+          );
+        }
+      })}
     </div>
   );
 }
