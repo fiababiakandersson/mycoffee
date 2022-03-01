@@ -9,7 +9,7 @@ import { coffeeData, genericPicture } from "../data";
 import NotFound from "./NotFound";
 import SingleCoffee from "./SingleCoffee";
 import SavedCoffeeList from "./SavedCoffeeList";
-import { useLocalStorageState } from "./useLocalStorageState";
+import { useLocalStorageState } from "./shared/useLocalStorageState";
 
 export interface Coffee {
   title: string;
