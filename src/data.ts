@@ -10,12 +10,26 @@ import Mocha from "./assets/mocha.webp";
 import FlatWhite from "./assets/flat-white.webp";
 import Affogato from "./assets/affogato.webp";
 import CafeAuLait from "./assets/cafe-au-lait.webp";
-
+import GenericPicture from "./assets/genericpicture.png";
 export interface Data {
   name: string;
-  image: string;
   id: string;
+  image: string;
 }
+
+export interface GenericPicture {
+  name: string;
+  id: string;
+  image: string;
+}
+
+export const genericPicture: Data[] = [
+  {
+    name: "Generic",
+    id: "1",
+    image: GenericPicture,
+  },
+];
 
 export const coffeeData: Data[] = [
   {

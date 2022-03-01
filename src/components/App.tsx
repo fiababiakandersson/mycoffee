@@ -5,7 +5,7 @@ import "./App.css";
 import CoffeeList from "./CoffeeList";
 import Contact from "./Contact";
 import Layout from "./Layout";
-import { coffeeData } from "../data";
+import { coffeeData, genericPicture } from "../data";
 import NotFound from "./NotFound";
 import SingleCoffee from "./SingleCoffee";
 import SavedCoffeeList from "./SavedCoffeeList";
@@ -50,8 +50,7 @@ function App() {
         }
         if (!jsonData[x].image) {
           // TO BE FOLLOWED-UP: insert the src of a generic image to below
-          jsonData[x].image =
-            "FOLLOW UP!!!: a generic image for those without a pic";
+          jsonData[x].image = genericPicture[i].image;
         }
       }
     }
