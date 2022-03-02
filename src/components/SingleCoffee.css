@@ -50,6 +50,10 @@ img {
   z-index: 99;
 }
 
+.sep-line {
+  color: #d1c2ac;
+}
+
 /* MEDIA QUERIES */
 
 @media (max-width: 870px) {

@@ -1,6 +1,6 @@
-import { useParams } from "react-router-dom";
 import "./SingleCoffee.css";
 import { Coffee } from "./App";
+import { useParams } from "react-router-dom";
 import BackButton from "./shared/BackButton";
 import HeartIcon from "./HeartIcon";
 
@@ -39,7 +39,14 @@ const SingleCoffee = (props: Props) => {
           </div>
           <div className="text">
             <span className="span">Ingredients: </span>
-            <p>{coffee.ingredients}</p>
+            <p>
+              <span className="sep-line">|</span>
+            </p>
+            {coffee.ingredients.map((ingredient) => (
+              <p>
+                &nbsp; {ingredient} <span className="sep-line">|</span>
+              </p>
+            ))}
           </div>
           <BackButton content="Back" />
         </div>
