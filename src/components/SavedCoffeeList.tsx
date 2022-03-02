@@ -39,6 +39,7 @@ function SavedCoffeeList(props: Props) {
 
 const rootStyle: CSSProperties = {
   textAlign: "center",
+  marginTop: "2.5rem",
   minHeight: "calc(100vh - 10rem - 100px)",
 };
 
@@ -46,7 +47,6 @@ const titleStyle: CSSProperties = {
   fontSize: "2rem",
   fontFamily: "Playfair Display",
   margin: "0",
-  paddingBottom: "1rem",
 };
 
 const reminderStyle: CSSProperties = {
@@ -62,6 +62,7 @@ const cardStyle: CSSProperties = {
   placeItems: "center",
   gap: "2rem",
   flexWrap: "wrap",
+  paddingBottom: "2rem",
 };
 
 export default SavedCoffeeList;
