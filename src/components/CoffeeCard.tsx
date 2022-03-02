@@ -20,7 +20,7 @@ function CoffeeCard(props: Props) {
         />
       </Link>
       <div style={titleHeartContainer}>
-      <div style={coffeeCardTitle}><h1 style={cardTitle}>{props.data.title}</h1></div>
+      <div style={coffeeCardTitle}><h1 style={cardTitle}>{props.coffee.title}</h1></div>
       <HeartIcon
         isLiked={props.coffee.isLiked}
         onLiked={() => props.onLikeChange()}
