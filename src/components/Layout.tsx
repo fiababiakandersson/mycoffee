@@ -2,11 +2,12 @@ import { Outlet, useNavigate } from "react-router-dom";
 import ErrorBoundary from "./ErrorBoundary";
 import Header from "./Header";
 import Footer from "./Footer";
+import { CSSProperties } from "react";
 
 function Layout() {
   const navigate = useNavigate();
   return (
-    <div>
+    <div style={layoutStyle}>
       <Header />
       <ErrorBoundary onGoBack={() => navigate("/")}>
         <Outlet />
@@ -15,5 +16,9 @@ function Layout() {
     </div>
   );
 }
+
+const layoutStyle: CSSProperties = {
+  position: "relative",
+};
 
 export default Layout;

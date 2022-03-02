@@ -14,10 +14,12 @@ function NotFound() {
 }
 
 const rootStyle: CSSProperties = {
-  minHeight: "25rem",
-  textAlign: "center",
+  minHeight: "calc(100vh - 10rem - 100px)",
+  display: "flex",
+  flexDirection: "column",
+  placeContent: "center",
+  placeItems: "center",
   color: "#642801",
-  paddingBottom: "6rem",
 };
 
 const imgStyle: CSSProperties = {

@@ -50,8 +50,11 @@ class ErrorBoundary extends Component<Props, State> {
 export default ErrorBoundary;
 
 const rootStyle: CSSProperties = {
-  minHeight: "30rem",
-  textAlign: "center",
+  minHeight: "calc(100vh - 10rem - 100px)",
+  display: "flex",
+  flexDirection: "column",
+  placeContent: "center",
+  placeItems: "center",
   color: "#642801",
 };
 
