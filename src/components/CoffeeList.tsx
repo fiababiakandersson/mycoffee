@@ -11,32 +11,49 @@ interface Props {
 
 // Filters coffees depending on searchbar
 function CoffeeList(props: Props) {
-  const [filteredCoffees, setFilteredCoffees] = useState<Coffee[]>(props.coffees);
+  const [filteredCoffees, setFilteredCoffees] = useState<Coffee[]>(
+    props.coffees
+  );
 
   return (
-    <div className="form-input">
+    <div style={rootStyle}>
       <SearchBar coffees={props.coffees} onFiltered={setFilteredCoffees} />
-      
-      <div style={rootStyle}>
-        {filteredCoffees.map((coffee) => (
-          <CoffeeCard
-            key={coffee.id}
-            coffee={coffee}
-            onLikeChange={() => props.onLikeChange(coffee.id)}
-          />
-        ))}
-      </div>
+      {filteredCoffees.length < 1 ? (
+        <h2 style={reminderStyle}>No matches</h2>
+      ) : (
+        <div style={cardStyle}>
+          {filteredCoffees.map((coffee) => (
+            <CoffeeCard
+              key={coffee.id}
+              coffee={coffee}
+              onLikeChange={() => props.onLikeChange(coffee.id)}
+            />
+          ))}
+        </div>
+      )}
     </div>
   );
 }
 
 const rootStyle: CSSProperties = {
+  textAlign: "center",
+  minHeight: "calc(100vh - 10rem - 100px)",
+};
+
+const cardStyle: CSSProperties = {
   display: "flex",
   flexDirection: "row",
   justifyContent: "center",
   gap: "1rem 2rem",
   flexWrap: "wrap",
-  paddingBottom: "10rem",
+  paddingBottom: "2rem",
+};
+
+const reminderStyle: CSSProperties = {
+  fontSize: "1.2rem",
+  lineHeight: "2.5rem",
+  fontWeight: "200",
+  textAlign: "center",
 };
 
 export default CoffeeList;
