@@ -23,7 +23,7 @@ const heartStyle: CSSProperties = {
   fontSize: "2rem",
   marginLeft: "1rem",
   color: "#F57777",
-  bottom: "2rem",
+  bottom: "1.5rem",
   left: "1rem",
   zIndex: "99",
 };

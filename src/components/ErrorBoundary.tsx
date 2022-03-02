@@ -40,7 +40,6 @@ class ErrorBoundary extends Component<Props, State> {
           <button style={buttonStyle} onClick={this.resetState}>
             Back to Home
           </button>
-          {console.log(this.state.hasError)}
         </div>
       );
     }
@@ -51,13 +50,15 @@ class ErrorBoundary extends Component<Props, State> {
 export default ErrorBoundary;
 
 const rootStyle: CSSProperties = {
-  minHeight: "30rem",
-  textAlign: "center",
-  color: "#642801",
+  minHeight: "calc(100vh - 10rem - 100px)",
+  display: "flex",
+  flexDirection: "column",
+  placeContent: "center",
+  placeItems: "center",
 };
 
 const titleStyle: CSSProperties = {
-  color: "#642801",
+  fontWeight: "200",
 };
 
 const imgStyle: CSSProperties = {
@@ -69,14 +70,12 @@ const buttonStyle: CSSProperties = {
   fontFamily: "Montserrat",
   background: "#3D2314",
   color: "white",
-  textTransform: "capitalize",
-  fontWeight: "bold",
-  fontSize: "1rem",
-  padding: ".8rem 1rem",
+  fontSize: ".9rem",
+  padding: ".5rem .8rem",
   borderRadius: "10px",
   border: "none",
   marginTop: "1rem",
+  width: "fit-content",
+  alignSelf: "center",
+  cursor: "pointer",
 };
-
-// search bar
-// 404 page not found

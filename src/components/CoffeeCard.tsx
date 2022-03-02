@@ -1,4 +1,3 @@
-import { title } from "process";
 import { CSSProperties } from "react";
 import { Link } from "react-router-dom";
 import { Coffee } from "./App";
@@ -9,7 +8,7 @@ interface Props {
   onLikeChange: () => void;
 }
 
-// Shows picture, title and likebutton for all the coffeecards in coffeelist
+/** shows image, title and like button for all the coffeecards in coffeelist */
 function CoffeeCard(props: Props) {
   return (
     <div style={rootStyle}>
@@ -20,13 +19,13 @@ function CoffeeCard(props: Props) {
           alt={props.coffee.title}
         />
       </Link>
-      <div style={titleHeartContainer}>
-      <div style={coffeeCardTitle}><h1 style={cardTitle}>{props.coffee.title}</h1></div>
+      <div style={titleContainerStyle}>
+        <h3 style={titleStyle}>{props.coffee.title}</h3>
+      </div>
       <HeartIcon
         isLiked={props.coffee.isLiked}
         onLiked={() => props.onLikeChange()}
       />
-      </div>
     </div>
   );
 }
@@ -44,22 +43,14 @@ const imgStyle: CSSProperties = {
   height: "350px",
 };
 
-const coffeeCardTitle: CSSProperties = {
-  color: "#50311f",
-  fontSize: '.6rem',
-}
+const titleStyle: CSSProperties = {
+  fontWeight: "200",
+};
 
-const titleHeartContainer: CSSProperties = {
-  display: 'flex',
-  justifyContent:'center',
-  alignItems: 'center',
-}
-
-const cardTitle: CSSProperties = {
-  fontFamily: "Montserrat",
-  maxWidth: '10rem',
-  fontWeight: 200,
-  maxHeight: '3rem'
-}
+const titleContainerStyle: CSSProperties = {
+  display: "flex",
+  justifyContent: "center",
+  alignItems: "center",
+};
 
 export default CoffeeCard;

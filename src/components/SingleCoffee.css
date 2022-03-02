@@ -1,7 +1,7 @@
 .singleCoffeeContainer {
   display: flex;
   justify-content: center;
-  padding-bottom: 10rem;
+  min-height: calc(100vh - 10rem - 100px);
 }
 
 .content {
@@ -48,6 +48,10 @@ img {
   bottom: 0;
   right: 2rem;
   z-index: 99;
+}
+
+.sep-line {
+  color: #d1c2ac;
 }
 
 /* MEDIA QUERIES */

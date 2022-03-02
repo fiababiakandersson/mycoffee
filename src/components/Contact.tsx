@@ -1,6 +1,6 @@
 function Contact() {
-  throw Error("404 Page Not Found");
-  return <div>This is CONTACT</div>;
+  throw Error();
+  return <div>Just for displaying how the error boundary works</div>;
 }
 
 export default Contact;

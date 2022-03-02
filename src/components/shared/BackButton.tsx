@@ -7,6 +7,8 @@ interface Props {
 
 const BackButton = (props: Props) => {
   const navigate = useNavigate();
+
+  /** callback function to navigate to previous page  */
   const onGoBack = () => {
     navigate(-1);
   };
