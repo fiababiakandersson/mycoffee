@@ -48,7 +48,6 @@ function App() {
           jsonData[x].image = coffeeData[i].image;
         }
         if (!jsonData[x].image) {
-          // TO BE FOLLOWED-UP: insert the src of a generic image to below
           jsonData[x].image = GenericPicture;
         }
       }

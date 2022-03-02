@@ -2,23 +2,26 @@ import CoffeeCard from "./CoffeeCard";
 import { CSSProperties, useState } from "react";
 import { Coffee } from "./App";
 import SearchBar from "./SearchBar";
+import "./SearchBar.css";
 
 interface Props {
   coffees: Coffee[];
   onLikeChange: (id: string) => void;
 }
 
+// Filters coffees depending on searchbar
 function CoffeeList(props: Props) {
   const [filteredCoffees, setFilteredCoffees] = useState<Coffee[]>(props.coffees);
 
   return (
-    <div style={rootStyle}>
+    <div className="form-input">
       <SearchBar coffees={props.coffees} onFiltered={setFilteredCoffees} />
+      
       <div style={rootStyle}>
         {filteredCoffees.map((coffee) => (
           <CoffeeCard
             key={coffee.id}
-            data={coffee}
+            coffee={coffee}
             onLikeChange={() => props.onLikeChange(coffee.id)}
           />
         ))}

@@ -9,6 +9,7 @@ interface Props {
   onLikeChange: () => void;
 }
 
+// Shows picture, title and likebutton for all the coffeecards in coffeelist
 function CoffeeCard(props: Props) {
   return (
     <div style={rootStyle}>
@@ -20,7 +21,7 @@ function CoffeeCard(props: Props) {
         />
       </Link>
       <div style={titleHeartContainer}>
-      <div style={coffeeCardTitle}><h1 style={cardTitle}>{props.data.title}</h1></div>
+      <div style={coffeeCardTitle}><h1 style={cardTitle}>{props.coffee.title}</h1></div>
       <HeartIcon
         isLiked={props.coffee.isLiked}
         onLiked={() => props.onLikeChange()}
