@@ -9,7 +9,7 @@ import { coffeeData } from "../data";
 import NotFound from "./NotFound";
 import SingleCoffee from "./SingleCoffee";
 import SavedCoffeeList from "./SavedCoffeeList";
-import { useLocalStorageState } from "./useLocalStorageState";
+import { useLocalStorageState } from "./shared/useLocalStorageState";
 import GenericPicture from "../assets/genericpicture.png";
 
 export interface Coffee {
@@ -96,7 +96,12 @@ function App() {
               }
             />
           )}
-          <Route path="/cards/:id" element={<SingleCoffee data={coffees} />} />
+          <Route
+            path="/cards/:id"
+            element={
+              <SingleCoffee coffees={coffees} onLikeChange={updateLike} />
+            }
+          />
           <Route
             path="saved"
             element={

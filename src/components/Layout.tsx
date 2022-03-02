@@ -13,7 +13,7 @@ interface Props {
 function Layout(props: Props) {
   const navigate = useNavigate();
   return (
-    <div style={rootStyle}>
+    <div>
       <Header />
       <ErrorBoundary onGoBack={() => navigate("/")}>
         <Outlet />
@@ -22,7 +22,5 @@ function Layout(props: Props) {
     </div>
   );
 }
-
-const rootStyle: CSSProperties = {};
 
 export default Layout;

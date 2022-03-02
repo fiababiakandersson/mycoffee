@@ -5,20 +5,24 @@ import { Coffee } from "./App";
 import HeartIcon from "./HeartIcon";
 
 interface Props {
-  data: Coffee;
+  coffee: Coffee;
   onLikeChange: () => void;
 }
 
 function CoffeeCard(props: Props) {
   return (
     <div style={rootStyle}>
-      <Link to={`/cards/${props.data.id}`}>
-        <img style={imgStyle} src={props.data.image} alt={props.data.title} />
+      <Link to={`/cards/${props.coffee.id}`}>
+        <img
+          style={imgStyle}
+          src={props.coffee.image}
+          alt={props.coffee.title}
+        />
       </Link>
       <div style={titleHeartContainer}>
       <div style={coffeeCardTitle}><h1 style={cardTitle}>{props.data.title}</h1></div>
       <HeartIcon
-        isLiked={props.data.isLiked}
+        isLiked={props.coffee.isLiked}
         onLiked={() => props.onLikeChange()}
       />
       </div>
