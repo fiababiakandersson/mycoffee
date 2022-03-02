@@ -9,6 +9,7 @@ interface Props {
   onLikeChange: () => void;
 }
 
+// Shows picture, title and likebutton for all the coffeecards in coffeelist
 function CoffeeCard(props: Props) {
   return (
     <div style={rootStyle}>

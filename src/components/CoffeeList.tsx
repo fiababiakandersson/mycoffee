@@ -8,6 +8,7 @@ interface Props {
   onLikeChange: (id: string) => void;
 }
 
+// Filters coffees depending on searchbar
 function CoffeeList(props: Props) {
   const [filteredCoffees, setFilteredCoffees] = useState<Coffee[]>(props.coffees);
 
