@@ -1,5 +1,5 @@
-import './About.css';
-import Logo from '../assets/Logo.svg';
+import "./About.css";
+import Logo from "../assets/Logo.svg";
 
 function About() {
   return (
@@ -21,7 +21,7 @@ function About() {
           are the highly regarded arabica, and the less sophisticated but
           stronger and more hardy robusta.
         </p>
-        <h2>The drink</h2>
+        <h2>The Drink</h2>
         <p>
           Coffee is one of the most popular drinks in the world. It is slightly
           acidic and can have a stimulating effect on humans because of its
