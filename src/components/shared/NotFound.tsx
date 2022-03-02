@@ -1,6 +1,6 @@
 import { CSSProperties } from "react";
-import errorImg from "../assets/error-coffee.webp";
-import BackButton from "./shared/BackButton";
+import errorImg from "../../assets/error-coffee.webp";
+import BackButton from "./BackButton";
 
 function NotFound() {
   return (

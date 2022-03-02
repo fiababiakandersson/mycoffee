@@ -5,10 +5,10 @@ import CoffeeList from "./CoffeeList";
 import Contact from "./Contact";
 import Layout from "./Layout";
 import { coffeeData } from "../data";
-import NotFound from "./NotFound";
+import NotFound from "./shared/NotFound";
 import SingleCoffee from "./SingleCoffee";
 import SavedCoffeeList from "./SavedCoffeeList";
-import { useLocalStorageState } from "./shared/useLocalStorageState";
+import { useLocalStorageState } from "../hooks/useLocalStorageState";
 import GenericPicture from "../assets/genericpicture.png";
 
 export interface Coffee {
