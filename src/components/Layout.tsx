@@ -7,8 +7,7 @@ import { Coffee } from "./App";
 import Footer from "./Footer";
 
 interface Props {
-  coffees: Coffee[];
-  onFiltered: (filteredCoffees: Coffee[]) => void;
+  
 }
 
 function Layout(props: Props) {
@@ -16,7 +15,6 @@ function Layout(props: Props) {
   return (
     <div style={rootStyle}>
       <Header />
-      <SearchBar coffees={props.coffees} onFiltered={props.onFiltered} />
       <ErrorBoundary onGoBack={() => navigate("/")}>
         <Outlet />
       </ErrorBoundary>
