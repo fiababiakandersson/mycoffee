@@ -1,6 +1,6 @@
 function Contact() {
   throw Error();
-  return <div></div>;
+  return <div>Just for displaying how the error boundary works</div>;
 }
 
 export default Contact;

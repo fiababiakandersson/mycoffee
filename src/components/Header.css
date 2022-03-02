@@ -1,7 +1,6 @@
 header {
   height: 10rem;
   display: flex;
-  flex-direction: row;
   justify-content: space-between;
 }
 

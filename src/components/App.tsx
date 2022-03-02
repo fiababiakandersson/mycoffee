@@ -10,7 +10,6 @@ import SingleCoffee from "./SingleCoffee";
 import SavedCoffeeList from "./SavedCoffeeList";
 import { useLocalStorageState } from "../hooks/useLocalStorageState";
 import GenericPicture from "../assets/genericpicture.png";
-
 export interface Coffee {
   title: string;
   id: string;
@@ -29,19 +28,17 @@ function App() {
 
   useEffect(() => {
     fetch("https://api.sampleapis.com/coffee/hot")
-      // get response object with json method on that
       .then((response) => {
         return response.json();
       })
-      // tag on another then method whereby we get the data
       .then((jsonData: Coffee[]) => {
         jsonData = compareData(jsonData);
         setCoffees(jsonData);
-        console.log(jsonData);
       });
   }, []);
 
   const compareData = (jsonData: Coffee[]) => {
+    // push in images from local data to JSON
     for (let i = 0; i < coffeeData.length; i++) {
       for (let x = 0; x < jsonData.length; x++) {
         if (jsonData[x].title === coffeeData[i].name) {
@@ -52,8 +49,7 @@ function App() {
         }
       }
     }
-
-    //Update liked status from local storage
+    // push in liked status fro LS to JSON
     for (let x = 0; x < jsonData.length; x++) {
       const liked: boolean = likedCoffee.indexOf(jsonData[x].id) !== -1;
       if (liked) {
@@ -63,6 +59,7 @@ function App() {
     return jsonData;
   };
 
+  /** update like status in LS */
   const updateLike = (id: string) => {
     const likedCoffeeIndex = likedCoffee.indexOf(id);
     if (likedCoffeeIndex !== -1) {
@@ -80,7 +77,7 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Layout />}>
-          {/* logic: if the left part is an empty array (which returns fault) then it won't load the right; and if left is true, it goes to right and output the right on the screen */}
+          {/* logic: if the left part is an empty array (which returns false), it won't load the right; and if the left is true, output the right on the screen */}
           {coffees.length > 0 && (
             <Route
               index
