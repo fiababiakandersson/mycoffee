@@ -40,7 +40,6 @@ class ErrorBoundary extends Component<Props, State> {
           <button style={buttonStyle} onClick={this.resetState}>
             Back to Home
           </button>
-          {console.log(this.state.hasError)}
         </div>
       );
     }
@@ -77,6 +76,3 @@ const buttonStyle: CSSProperties = {
   border: "none",
   marginTop: "1rem",
 };
-
-// search bar
-// 404 page not found
