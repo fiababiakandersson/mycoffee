@@ -1,6 +1,6 @@
 function Contact() {
-  throw Error("404 Page Not Found");
-  return <div>This is CONTACT</div>;
+  throw Error();
+  return <div></div>;
 }
 
 export default Contact;
