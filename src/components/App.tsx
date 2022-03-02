@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import About from "./About";
-import "./App.css";
 import CoffeeList from "./CoffeeList";
 import Contact from "./Contact";
 import Layout from "./Layout";
@@ -38,6 +37,7 @@ function App() {
       .then((jsonData: Coffee[]) => {
         jsonData = compareData(jsonData);
         setCoffees(jsonData);
+        console.log(jsonData);
       });
   }, []);
 
@@ -79,19 +79,13 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route
-          path="/"
-          element={<Layout />}
-        >
+        <Route path="/" element={<Layout />}>
           {/* logic: if the left part is an empty array (which returns fault) then it won't load the right; and if left is true, it goes to right and output the right on the screen */}
           {coffees.length > 0 && (
             <Route
               index
               element={
-                <CoffeeList
-                  onLikeChange={updateLike}
-                  coffees={coffees}
-                />
+                <CoffeeList onLikeChange={updateLike} coffees={coffees} />
               }
             />
           )}
