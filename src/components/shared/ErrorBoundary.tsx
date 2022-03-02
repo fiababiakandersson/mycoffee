@@ -1,5 +1,5 @@
 import { Component, CSSProperties, ErrorInfo, ReactNode } from "react";
-import errorImg from "../assets/error-coffee.webp";
+import errorImg from "../../assets/error-coffee.webp";
 
 interface Props {
   children: ReactNode;
