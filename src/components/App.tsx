@@ -49,7 +49,7 @@ function App() {
         }
       }
     }
-    // push in liked status fro LS to JSON
+    // push in liked status from LS to JSON
     for (let x = 0; x < jsonData.length; x++) {
       const liked: boolean = likedCoffee.indexOf(jsonData[x].id) !== -1;
       if (liked) {
