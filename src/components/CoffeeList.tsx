@@ -46,7 +46,7 @@ const cardStyle: CSSProperties = {
   justifyContent: "center",
   gap: "1rem 2rem",
   flexWrap: "wrap",
-  paddingBottom: "2rem",
+  padding: "2rem 0",
 };
 
 const reminderStyle: CSSProperties = {
