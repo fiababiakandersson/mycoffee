@@ -1,15 +1,15 @@
 import { useEffect, useState } from "react";
-import { BrowserRouter, Route, Routes, useNavigate } from "react-router-dom";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import GenericPicture from "../assets/genericpicture.png";
+import { coffeeData } from "../data";
+import { useLocalStorageState } from "../hooks/useLocalStorageState";
 import About from "./About";
 import CoffeeList from "./CoffeeList";
 import Contact from "./Contact";
 import Layout from "./Layout";
-import { coffeeData } from "../data";
+import SavedCoffeeList from "./SavedCoffeeList";
 import NotFound from "./shared/NotFound";
 import SingleCoffee from "./SingleCoffee";
-import SavedCoffeeList from "./SavedCoffeeList";
-import { useLocalStorageState } from "../hooks/useLocalStorageState";
-import GenericPicture from "../assets/genericpicture.png";
 export interface Coffee {
   title: string;
   id: string;
@@ -33,35 +33,35 @@ function App() {
         return response.json();
       })
       .then((jsonData: Coffee[]) => {
-        jsonData = compareData(jsonData);
+        // jsonData = compareData(jsonData);
         setCoffees(jsonData);
       })
       .catch((error) => {
         setError(true);
       });
   }, []);
-
-  const compareData = (jsonData: Coffee[]) => {
-    // push in images from local data to JSON
-    for (let i = 0; i < coffeeData.length; i++) {
-      for (let x = 0; x < jsonData.length; x++) {
-        if (jsonData[x].title === coffeeData[i].name) {
-          jsonData[x].image = coffeeData[i].image;
-        }
-        if (!jsonData[x].image) {
-          jsonData[x].image = GenericPicture;
-        }
-      }
-    }
-    // push in liked status from LS to JSON
+  
+const compareData = (jsonData: Coffee[]) => {
+  // push in images from local data to JSON
+  for (let i = 0; i < coffeeData.length; i++) {
     for (let x = 0; x < jsonData.length; x++) {
-      const liked: boolean = likedCoffee.indexOf(jsonData[x].id) !== -1;
-      if (liked) {
-        jsonData[x].isLiked = liked;
+      if (jsonData[x].title === coffeeData[i].name) {
+        jsonData[x].image = coffeeData[i].image;
+      }
+      if (!jsonData[x].image) {
+        jsonData[x].image = GenericPicture;
       }
     }
-    return jsonData;
-  };
+  }
+  // push in liked status from LS to JSON
+  for (let x = 0; x < jsonData.length; x++) {
+    const liked: boolean = likedCoffee.indexOf(jsonData[x].id) !== -1;
+    if (liked) {
+      jsonData[x].isLiked = liked;
+    }
+  }
+  return jsonData;
+};
 
   /** update like status in LS */
   const updateLike = (id: string) => {
@@ -81,6 +81,8 @@ function App() {
     return <NotFound />;
   }
 
+  const comparedCoffees = compareData(coffees);
+
   return (
     <BrowserRouter>
       <Routes>
@@ -90,7 +92,10 @@ function App() {
             <Route
               index
               element={
-                <CoffeeList onLikeChange={updateLike} coffees={coffees} />
+                <CoffeeList
+                  onLikeChange={updateLike}
+                  coffees={comparedCoffees}
+                />
               }
             />
           )}
@@ -105,7 +110,7 @@ function App() {
             element={
               <SavedCoffeeList
                 onLikeChange={updateLike}
-                coffees={coffees}
+                coffees={comparedCoffees}
                 likedCoffee={likedCoffee}
               />
             }
