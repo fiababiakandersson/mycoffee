@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Route, Routes, useNavigate } from "react-router-dom";
 import About from "./About";
 import CoffeeList from "./CoffeeList";
 import Contact from "./Contact";
@@ -25,6 +25,7 @@ function App() {
     [],
     "likedCoffee"
   );
+  const [hasError, setError] = useState(false);
 
   useEffect(() => {
     fetch("https://api.sampleapis.com/coffee/hot")
@@ -34,6 +35,9 @@ function App() {
       .then((jsonData: Coffee[]) => {
         jsonData = compareData(jsonData);
         setCoffees(jsonData);
+      })
+      .catch((error) => {
+        setError(true);
       });
   }, []);
 
@@ -72,6 +76,10 @@ function App() {
       coffees[parseInt(id) - 1].isLiked = true;
     }
   };
+
+  if (hasError) {
+    return <NotFound />;
+  }
 
   return (
     <BrowserRouter>
