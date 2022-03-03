@@ -43,7 +43,7 @@ const SingleCoffee = (props: Props) => {
               <span className="sep-line">|</span>
             </p>
             {coffee.ingredients.map((ingredient) => (
-              <p>
+              <p key={ingredient}>
                 &nbsp; {ingredient} <span className="sep-line">|</span>
               </p>
             ))}
