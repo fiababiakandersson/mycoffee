@@ -5,7 +5,6 @@ import { coffeeData } from "../data";
 import { useLocalStorageState } from "../hooks/useLocalStorageState";
 import About from "./About";
 import CoffeeList from "./CoffeeList";
-import Contact from "./Contact";
 import Layout from "./Layout";
 import SavedCoffeeList from "./SavedCoffeeList";
 import NotFound from "./shared/NotFound";
@@ -24,7 +23,6 @@ function App() {
   const [likedCoffee, setLikedCoffee] = useLocalStorageState<string[]>(
     [],
     "likedCoffee"
-    
   );
   const [hasError, setError] = useState(false);
 
@@ -41,28 +39,28 @@ function App() {
         setError(true);
       });
   }, []);
-  
-const compareData = (jsonData: Coffee[]) => {
-  // push in images from local data to JSON
-  for (let i = 0; i < coffeeData.length; i++) {
+
+  const compareData = (jsonData: Coffee[]) => {
+    // push in images from local data to JSON
+    for (let i = 0; i < coffeeData.length; i++) {
+      for (let x = 0; x < jsonData.length; x++) {
+        if (jsonData[x].title === coffeeData[i].name) {
+          jsonData[x].image = coffeeData[i].image;
+        }
+        if (!jsonData[x].image) {
+          jsonData[x].image = GenericPicture;
+        }
+      }
+    }
+    // push in liked status from LS to JSON
     for (let x = 0; x < jsonData.length; x++) {
-      if (jsonData[x].title === coffeeData[i].name) {
-        jsonData[x].image = coffeeData[i].image;
-      }
-      if (!jsonData[x].image) {
-        jsonData[x].image = GenericPicture;
+      const liked: boolean = likedCoffee.indexOf(jsonData[x].id) !== -1;
+      if (liked) {
+        jsonData[x].isLiked = liked;
       }
     }
-  }
-  // push in liked status from LS to JSON
-  for (let x = 0; x < jsonData.length; x++) {
-    const liked: boolean = likedCoffee.indexOf(jsonData[x].id) !== -1;
-    if (liked) {
-      jsonData[x].isLiked = liked;
-    }
-  }
-  return jsonData;
-};
+    return jsonData;
+  };
 
   /** update like status in LS */
   const updateLike = (id: string) => {
@@ -117,7 +115,6 @@ const compareData = (jsonData: Coffee[]) => {
             }
           />
           <Route path="/about" element={<About />} />
-          <Route path="contact" element={<Contact />} />
           <Route path="*" element={<NotFound />} />
         </Route>
       </Routes>

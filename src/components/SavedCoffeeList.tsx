@@ -20,6 +20,7 @@ function SavedCoffeeList(props: Props) {
             Explore the coffee list and save them here ☕
           </h2>
         ) : (
+          // eslint-disable-next-line array-callback-return
           props.coffees.map((coffee) => {
             if (props.likedCoffee.includes(coffee.id)) {
               return (
