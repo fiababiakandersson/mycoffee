@@ -11,7 +11,7 @@ Open your terminal and type
 - npm start
 
 # Check out My Coffee
-[Demo](https://fiababiakandersson.github.io/mycoffee/)
+[Demo](https://mycoffeeapp.netlify.app)
 
 # Creators
 Fia Andersson [Github](https://github.com/fiababiakandersson)
