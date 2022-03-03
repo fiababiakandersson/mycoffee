@@ -26,6 +26,7 @@ const heartStyle: CSSProperties = {
   bottom: "1.5rem",
   left: "1rem",
   zIndex: "99",
+  cursor: "pointer",
 };
 
 export default HeartIcon;
