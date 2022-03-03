@@ -20,11 +20,6 @@ function Header() {
         <li>
           <Link to="/about">About</Link>
         </li>
-        <li>
-          <Link className="responsive-link" to="/contact">
-            Contact
-          </Link>
-        </li>
       </ul>
     </header>
   );
