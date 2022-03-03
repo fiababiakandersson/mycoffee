@@ -24,6 +24,7 @@ function App() {
   const [likedCoffee, setLikedCoffee] = useLocalStorageState<string[]>(
     [],
     "likedCoffee"
+    
   );
   const [hasError, setError] = useState(false);
 
