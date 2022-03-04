@@ -64,15 +64,19 @@ function App() {
 
   /** update like status in LS */
   const updateLike = (id: string) => {
+    // get the index of the passed in coffee id from the liked coffee array
     const likedCoffeeIndex = likedCoffee.indexOf(id);
+    // run through the coffees and get the index of the passed in coffee id from it
+    const coffeeIndex = coffees.map((coffee) => coffee.id).indexOf(id);
+
     if (likedCoffeeIndex !== -1) {
       // if it exists
       likedCoffee.splice(likedCoffeeIndex, 1); // remove from LS
       setLikedCoffee([...likedCoffee]); // update LS
-      coffees[parseInt(id) - 1].isLiked = false; // set isLiked to false
+      coffees[coffeeIndex].isLiked = false; // set isLiked to false
     } else {
       setLikedCoffee([...likedCoffee, id]);
-      coffees[parseInt(id) - 1].isLiked = true;
+      coffees[coffeeIndex].isLiked = true;
     }
   };
 
